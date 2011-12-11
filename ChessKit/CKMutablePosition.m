@@ -1,11 +1,13 @@
 //
-//  ChessKit.h
+//  CKMutablePosition.m
 //  ChessKit
 //
-//  Created by Austen Green on 11/11/11.
+//  Created by Austen Green on 12/10/11.
 //  Copyright (c) 2011 Austen Green Consulting. All rights reserved.
 //
 
-#import "CKPosition.h"
 #import "CKMutablePosition.h"
-#import "CKMove.h"
+
+@implementation CKMutablePosition
+
+@end

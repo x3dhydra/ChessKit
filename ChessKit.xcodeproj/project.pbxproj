@@ -7,8 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		191FC2131494415600FB4F8E /* libCoreChess.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 191FC2121494415600FB4F8E /* libCoreChess.a */; };
+		191FC2171494417D00FB4F8E /* CKPosition.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC2151494417D00FB4F8E /* CKPosition.h */; };
+		191FC2181494417D00FB4F8E /* CKPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 191FC2161494417D00FB4F8E /* CKPosition.m */; };
+		191FC21B1494419000FB4F8E /* CKMutablePosition.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC2191494419000FB4F8E /* CKMutablePosition.h */; };
+		191FC21C1494419000FB4F8E /* CKMutablePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 191FC21A1494419000FB4F8E /* CKMutablePosition.m */; };
+		191FC227149460A300FB4F8E /* CCBitboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC21E149460A300FB4F8E /* CCBitboard.h */; };
+		191FC229149460A300FB4F8E /* CCBoard.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC220149460A300FB4F8E /* CCBoard.h */; };
+		191FC22B149460A300FB4F8E /* CCCastlingRights.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC222149460A300FB4F8E /* CCCastlingRights.h */; };
+		191FC22C149460A300FB4F8E /* CCPiece.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC223149460A300FB4F8E /* CCPiece.h */; };
+		191FC22E149460A300FB4F8E /* CCSquare.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC225149460A300FB4F8E /* CCSquare.h */; };
+		191FC231149460A900FB4F8E /* CoreChess.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC230149460A900FB4F8E /* CoreChess.h */; };
+		191FC2341494625100FB4F8E /* CKMove.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC2321494625100FB4F8E /* CKMove.h */; };
+		191FC2351494625100FB4F8E /* CKMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 191FC2331494625100FB4F8E /* CKMove.m */; };
+		191FC24114946ECD00FB4F8E /* CCBoard+MoveGeneration.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC23F14946ECD00FB4F8E /* CCBoard+MoveGeneration.h */; };
+		191FC24514946ED300FB4F8E /* CCBitboard+MoveGeneration.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC24314946ED300FB4F8E /* CCBitboard+MoveGeneration.h */; };
+		191FC24D149472FD00FB4F8E /* CKPosition+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC24B149472FD00FB4F8E /* CKPosition+Private.h */; };
+		191FC24E149472FD00FB4F8E /* CKPosition+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 191FC24C149472FD00FB4F8E /* CKPosition+Private.m */; };
 		19F2777C146DAAE700B58AB1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F2777B146DAAE700B58AB1 /* Foundation.framework */; };
-		19F27782146DAAE700B58AB1 /* ChessKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F27781146DAAE700B58AB1 /* ChessKit.m */; };
 		19F2778A146DAAE700B58AB1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F27789146DAAE700B58AB1 /* SenTestingKit.framework */; };
 		19F2778C146DAAE700B58AB1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F2778B146DAAE700B58AB1 /* UIKit.framework */; };
 		19F2778D146DAAE700B58AB1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F2777B146DAAE700B58AB1 /* Foundation.framework */; };
@@ -28,17 +44,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		191FC2121494415600FB4F8E /* libCoreChess.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libCoreChess.a; path = "../CoreChess/build/Release-iphoneos/libCoreChess.a"; sourceTree = "<group>"; };
+		191FC2151494417D00FB4F8E /* CKPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKPosition.h; sourceTree = "<group>"; };
+		191FC2161494417D00FB4F8E /* CKPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKPosition.m; sourceTree = "<group>"; };
+		191FC2191494419000FB4F8E /* CKMutablePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKMutablePosition.h; sourceTree = "<group>"; };
+		191FC21A1494419000FB4F8E /* CKMutablePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKMutablePosition.m; sourceTree = "<group>"; };
+		191FC21E149460A300FB4F8E /* CCBitboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBitboard.h; sourceTree = "<group>"; };
+		191FC220149460A300FB4F8E /* CCBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBoard.h; sourceTree = "<group>"; };
+		191FC222149460A300FB4F8E /* CCCastlingRights.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCastlingRights.h; sourceTree = "<group>"; };
+		191FC223149460A300FB4F8E /* CCPiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPiece.h; sourceTree = "<group>"; };
+		191FC225149460A300FB4F8E /* CCSquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSquare.h; sourceTree = "<group>"; };
+		191FC230149460A900FB4F8E /* CoreChess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreChess.h; path = ../CoreChess.h; sourceTree = "<group>"; };
+		191FC2321494625100FB4F8E /* CKMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKMove.h; sourceTree = "<group>"; };
+		191FC2331494625100FB4F8E /* CKMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKMove.m; sourceTree = "<group>"; };
+		191FC23F14946ECD00FB4F8E /* CCBoard+MoveGeneration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCBoard+MoveGeneration.h"; sourceTree = "<group>"; };
+		191FC24314946ED300FB4F8E /* CCBitboard+MoveGeneration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCBitboard+MoveGeneration.h"; sourceTree = "<group>"; };
+		191FC24B149472FD00FB4F8E /* CKPosition+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CKPosition+Private.h"; path = "ChessKit/CKPosition+Private.h"; sourceTree = SOURCE_ROOT; };
+		191FC24C149472FD00FB4F8E /* CKPosition+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CKPosition+Private.m"; path = "ChessKit/CKPosition+Private.m"; sourceTree = SOURCE_ROOT; };
 		19F27778146DAAE700B58AB1 /* libChessKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libChessKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F2777B146DAAE700B58AB1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		19F2777F146DAAE700B58AB1 /* ChessKit-Prefix.pch */ = {isa = PBXFileReference; path = "ChessKit-Prefix.pch"; sourceTree = "<group>"; };
-		19F27780146DAAE700B58AB1 /* ChessKit.h */ = {isa = PBXFileReference; path = ChessKit.h; sourceTree = "<group>"; };
-		19F27781146DAAE700B58AB1 /* ChessKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChessKit.m; sourceTree = "<group>"; };
+		19F2777F146DAAE700B58AB1 /* ChessKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChessKit-Prefix.pch"; sourceTree = "<group>"; };
+		19F27780146DAAE700B58AB1 /* ChessKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChessKit.h; sourceTree = "<group>"; };
 		19F27788146DAAE700B58AB1 /* ChessKitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChessKitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F27789146DAAE700B58AB1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		19F2778B146DAAE700B58AB1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		19F27793146DAAE700B58AB1 /* ChessKitTests-Info.plist */ = {isa = PBXFileReference; path = "ChessKitTests-Info.plist"; sourceTree = "<group>"; };
+		19F27793146DAAE700B58AB1 /* ChessKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChessKitTests-Info.plist"; sourceTree = "<group>"; };
 		19F27795146DAAE700B58AB1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		19F27797146DAAE700B58AB1 /* ChessKitTests.h */ = {isa = PBXFileReference; path = ChessKitTests.h; sourceTree = "<group>"; };
+		19F27797146DAAE700B58AB1 /* ChessKitTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChessKitTests.h; sourceTree = "<group>"; };
 		19F27798146DAAE700B58AB1 /* ChessKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChessKitTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				191FC2131494415600FB4F8E /* libCoreChess.a in Frameworks */,
 				19F2777C146DAAE700B58AB1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,9 +98,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		191FC21D149460A300FB4F8E /* CoreChess */ = {
+			isa = PBXGroup;
+			children = (
+				191FC230149460A900FB4F8E /* CoreChess.h */,
+				191FC21E149460A300FB4F8E /* CCBitboard.h */,
+				191FC220149460A300FB4F8E /* CCBoard.h */,
+				191FC222149460A300FB4F8E /* CCCastlingRights.h */,
+				191FC223149460A300FB4F8E /* CCPiece.h */,
+				191FC225149460A300FB4F8E /* CCSquare.h */,
+				191FC23F14946ECD00FB4F8E /* CCBoard+MoveGeneration.h */,
+				191FC24314946ED300FB4F8E /* CCBitboard+MoveGeneration.h */,
+				191FC24B149472FD00FB4F8E /* CKPosition+Private.h */,
+				191FC24C149472FD00FB4F8E /* CKPosition+Private.m */,
+			);
+			name = CoreChess;
+			path = ../../CoreChess/CoreChess/CoreChess;
+			sourceTree = "<group>";
+		};
 		19F2776D146DAAE700B58AB1 = {
 			isa = PBXGroup;
 			children = (
+				191FC2121494415600FB4F8E /* libCoreChess.a */,
 				19F2777D146DAAE700B58AB1 /* ChessKit */,
 				19F27791146DAAE700B58AB1 /* ChessKitTests */,
 				19F2777A146DAAE700B58AB1 /* Frameworks */,
@@ -97,9 +149,15 @@
 		19F2777D146DAAE700B58AB1 /* ChessKit */ = {
 			isa = PBXGroup;
 			children = (
+				191FC21D149460A300FB4F8E /* CoreChess */,
+				191FC2151494417D00FB4F8E /* CKPosition.h */,
+				191FC2161494417D00FB4F8E /* CKPosition.m */,
+				191FC2191494419000FB4F8E /* CKMutablePosition.h */,
+				191FC21A1494419000FB4F8E /* CKMutablePosition.m */,
 				19F27780146DAAE700B58AB1 /* ChessKit.h */,
-				19F27781146DAAE700B58AB1 /* ChessKit.m */,
 				19F2777E146DAAE700B58AB1 /* Supporting Files */,
+				191FC2321494625100FB4F8E /* CKMove.h */,
+				191FC2331494625100FB4F8E /* CKMove.m */,
 			);
 			path = ChessKit;
 			sourceTree = "<group>";
@@ -138,6 +196,18 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				191FC2171494417D00FB4F8E /* CKPosition.h in Headers */,
+				191FC21B1494419000FB4F8E /* CKMutablePosition.h in Headers */,
+				191FC227149460A300FB4F8E /* CCBitboard.h in Headers */,
+				191FC229149460A300FB4F8E /* CCBoard.h in Headers */,
+				191FC22B149460A300FB4F8E /* CCCastlingRights.h in Headers */,
+				191FC22C149460A300FB4F8E /* CCPiece.h in Headers */,
+				191FC22E149460A300FB4F8E /* CCSquare.h in Headers */,
+				191FC231149460A900FB4F8E /* CoreChess.h in Headers */,
+				191FC2341494625100FB4F8E /* CKMove.h in Headers */,
+				191FC24114946ECD00FB4F8E /* CCBoard+MoveGeneration.h in Headers */,
+				191FC24514946ED300FB4F8E /* CCBitboard+MoveGeneration.h in Headers */,
+				191FC24D149472FD00FB4F8E /* CKPosition+Private.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,7 +309,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19F27782146DAAE700B58AB1 /* ChessKit.m in Sources */,
+				191FC2181494417D00FB4F8E /* CKPosition.m in Sources */,
+				191FC21C1494419000FB4F8E /* CKMutablePosition.m in Sources */,
+				191FC2351494625100FB4F8E /* CKMove.m in Sources */,
+				191FC24E149472FD00FB4F8E /* CKPosition+Private.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +461,7 @@
 				19F2779E146DAAE700B58AB1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		19F2779F146DAAE700B58AB1 /* Build configuration list for PBXNativeTarget "ChessKitTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +470,7 @@
 				19F277A1146DAAE700B58AB1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

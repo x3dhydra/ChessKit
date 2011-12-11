@@ -15,6 +15,7 @@
     [super setUp];
     
     // Set-up code here.
+    standardPosition = [CKPosition standardPosition];
 }
 
 - (void)tearDown
@@ -24,9 +25,10 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testEnPassantSquareOnFirstMove
 {
-    STFail(@"Unit tests are not implemented yet in ChessKitTests");
+    CKPosition *position = [standardPosition positionByMakingMove:[CKMove moveWithFrom:e2 to:e4]];
+    STAssertEquals(position.enPassantSquare, e3, @"En passant square is wrong");
 }
 
 @end

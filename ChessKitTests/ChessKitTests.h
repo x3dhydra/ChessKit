@@ -7,7 +7,11 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "ChessKit.h"
 
 @interface ChessKitTests : SenTestCase
+{
+    CKPosition *standardPosition;
+}
 
 @end
