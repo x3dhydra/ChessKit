@@ -24,6 +24,10 @@
 		191FC24514946ED300FB4F8E /* CCBitboard+MoveGeneration.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC24314946ED300FB4F8E /* CCBitboard+MoveGeneration.h */; };
 		191FC24D149472FD00FB4F8E /* CKPosition+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC24B149472FD00FB4F8E /* CKPosition+Private.h */; };
 		191FC24E149472FD00FB4F8E /* CKPosition+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 191FC24C149472FD00FB4F8E /* CKPosition+Private.m */; };
+		1929C29D150BE4D6002A7A49 /* CKDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 1929C29B150BE4D6002A7A49 /* CKDatabase.h */; };
+		1929C29E150BE4D6002A7A49 /* CKDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1929C29C150BE4D6002A7A49 /* CKDatabase.m */; };
+		1929C2A2150BE560002A7A49 /* CKGame.h in Headers */ = {isa = PBXBuildFile; fileRef = 1929C2A0150BE560002A7A49 /* CKGame.h */; };
+		1929C2A3150BE560002A7A49 /* CKGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1929C2A1150BE560002A7A49 /* CKGame.m */; };
 		19F2777C146DAAE700B58AB1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F2777B146DAAE700B58AB1 /* Foundation.framework */; };
 		19F2778A146DAAE700B58AB1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F27789146DAAE700B58AB1 /* SenTestingKit.framework */; };
 		19F2778C146DAAE700B58AB1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F2778B146DAAE700B58AB1 /* UIKit.framework */; };
@@ -44,7 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		191FC2121494415600FB4F8E /* libCoreChess.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libCoreChess.a; path = "../CoreChess/build/Release-iphoneos/libCoreChess.a"; sourceTree = "<group>"; };
+		191FC2121494415600FB4F8E /* libCoreChess.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCoreChess.a; path = "../CoreChess/build/Release-iphoneos/libCoreChess.a"; sourceTree = "<group>"; };
 		191FC2151494417D00FB4F8E /* CKPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKPosition.h; sourceTree = "<group>"; };
 		191FC2161494417D00FB4F8E /* CKPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKPosition.m; sourceTree = "<group>"; };
 		191FC2191494419000FB4F8E /* CKMutablePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKMutablePosition.h; sourceTree = "<group>"; };
@@ -61,6 +65,10 @@
 		191FC24314946ED300FB4F8E /* CCBitboard+MoveGeneration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCBitboard+MoveGeneration.h"; sourceTree = "<group>"; };
 		191FC24B149472FD00FB4F8E /* CKPosition+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CKPosition+Private.h"; path = "ChessKit/CKPosition+Private.h"; sourceTree = SOURCE_ROOT; };
 		191FC24C149472FD00FB4F8E /* CKPosition+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CKPosition+Private.m"; path = "ChessKit/CKPosition+Private.m"; sourceTree = SOURCE_ROOT; };
+		1929C29B150BE4D6002A7A49 /* CKDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKDatabase.h; sourceTree = "<group>"; };
+		1929C29C150BE4D6002A7A49 /* CKDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKDatabase.m; sourceTree = "<group>"; };
+		1929C2A0150BE560002A7A49 /* CKGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKGame.h; sourceTree = "<group>"; };
+		1929C2A1150BE560002A7A49 /* CKGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKGame.m; sourceTree = "<group>"; };
 		19F27778146DAAE700B58AB1 /* libChessKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libChessKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F2777B146DAAE700B58AB1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		19F2777F146DAAE700B58AB1 /* ChessKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChessKit-Prefix.pch"; sourceTree = "<group>"; };
@@ -158,6 +166,10 @@
 				19F2777E146DAAE700B58AB1 /* Supporting Files */,
 				191FC2321494625100FB4F8E /* CKMove.h */,
 				191FC2331494625100FB4F8E /* CKMove.m */,
+				1929C29B150BE4D6002A7A49 /* CKDatabase.h */,
+				1929C29C150BE4D6002A7A49 /* CKDatabase.m */,
+				1929C2A0150BE560002A7A49 /* CKGame.h */,
+				1929C2A1150BE560002A7A49 /* CKGame.m */,
 			);
 			path = ChessKit;
 			sourceTree = "<group>";
@@ -208,6 +220,8 @@
 				191FC24114946ECD00FB4F8E /* CCBoard+MoveGeneration.h in Headers */,
 				191FC24514946ED300FB4F8E /* CCBitboard+MoveGeneration.h in Headers */,
 				191FC24D149472FD00FB4F8E /* CKPosition+Private.h in Headers */,
+				1929C29D150BE4D6002A7A49 /* CKDatabase.h in Headers */,
+				1929C2A2150BE560002A7A49 /* CKGame.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +327,8 @@
 				191FC21C1494419000FB4F8E /* CKMutablePosition.m in Sources */,
 				191FC2351494625100FB4F8E /* CKMove.m in Sources */,
 				191FC24E149472FD00FB4F8E /* CKPosition+Private.m in Sources */,
+				1929C29E150BE4D6002A7A49 /* CKDatabase.m in Sources */,
+				1929C2A3150BE560002A7A49 /* CKGame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

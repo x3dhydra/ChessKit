@@ -1,0 +1,13 @@
+//
+//  CKGame.m
+//  ChessKit
+//
+//  Created by Austen Green on 3/10/12.
+//  Copyright (c) 2012 Austen Green Consulting. All rights reserved.
+//
+
+#import "CKGame.h"
+
+@implementation CKGame
+
+@end
