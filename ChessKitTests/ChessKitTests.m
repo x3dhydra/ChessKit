@@ -56,4 +56,18 @@
     //NSLog(@"%@", [tree position]);
 }
 
+- (void)testDatabaseLength
+{
+    __block NSURL *url = nil;
+    
+    [[NSBundle allBundles] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        url = [obj URLForResource:@"twic910" withExtension:@"pgn"];
+        if (url)
+            *stop = YES;
+    }];
+    
+    CKDatabase *database = [CKDatabase databaseWithContentsOfURL:url];
+    STAssertTrue(database.count == 1908, @"Database count = %d", database.count);
+}
+
 @end
