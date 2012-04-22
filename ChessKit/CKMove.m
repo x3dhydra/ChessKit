@@ -30,4 +30,9 @@
     return [[[self class] alloc] initWithFrom:from to:to];
 }
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"<%@ %p> from=%@ to=%@", [self class], self, CCSquareName(self.from), CCSquareName(self.to)]; 
+}
+
 @end

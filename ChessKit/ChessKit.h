@@ -9,3 +9,4 @@
 #import "CKPosition.h"
 #import "CKMutablePosition.h"
 #import "CKMove.h"
+#import "CKGameTree.h"

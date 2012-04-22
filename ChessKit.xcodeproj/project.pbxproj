@@ -35,6 +35,10 @@
 		19F27790146DAAE700B58AB1 /* libChessKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F27778146DAAE700B58AB1 /* libChessKit.a */; };
 		19F27796146DAAE700B58AB1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 19F27794146DAAE700B58AB1 /* InfoPlist.strings */; };
 		19F27799146DAAE700B58AB1 /* ChessKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F27798146DAAE700B58AB1 /* ChessKitTests.m */; };
+		19FF470115446F7000A7C545 /* CKGameTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 19FF46FF15446F7000A7C545 /* CKGameTree.h */; };
+		19FF470215446F7000A7C545 /* CKGameTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FF470015446F7000A7C545 /* CKGameTree.m */; };
+		19FF47121544820D00A7C545 /* CKGameTreeEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 19FF47101544820D00A7C545 /* CKGameTreeEnumerator.h */; };
+		19FF47131544820D00A7C545 /* CKGameTreeEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FF47111544820D00A7C545 /* CKGameTreeEnumerator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +84,10 @@
 		19F27795146DAAE700B58AB1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		19F27797146DAAE700B58AB1 /* ChessKitTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChessKitTests.h; sourceTree = "<group>"; };
 		19F27798146DAAE700B58AB1 /* ChessKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChessKitTests.m; sourceTree = "<group>"; };
+		19FF46FF15446F7000A7C545 /* CKGameTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKGameTree.h; path = ChessKit/CKGameTree.h; sourceTree = SOURCE_ROOT; };
+		19FF470015446F7000A7C545 /* CKGameTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKGameTree.m; path = ChessKit/CKGameTree.m; sourceTree = SOURCE_ROOT; };
+		19FF47101544820D00A7C545 /* CKGameTreeEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKGameTreeEnumerator.h; sourceTree = "<group>"; };
+		19FF47111544820D00A7C545 /* CKGameTreeEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKGameTreeEnumerator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +127,8 @@
 				191FC24314946ED300FB4F8E /* CCBitboard+MoveGeneration.h */,
 				191FC24B149472FD00FB4F8E /* CKPosition+Private.h */,
 				191FC24C149472FD00FB4F8E /* CKPosition+Private.m */,
+				19FF46FF15446F7000A7C545 /* CKGameTree.h */,
+				19FF470015446F7000A7C545 /* CKGameTree.m */,
 			);
 			name = CoreChess;
 			path = ../../CoreChess/CoreChess/CoreChess;
@@ -170,6 +180,8 @@
 				1929C29C150BE4D6002A7A49 /* CKDatabase.m */,
 				1929C2A0150BE560002A7A49 /* CKGame.h */,
 				1929C2A1150BE560002A7A49 /* CKGame.m */,
+				19FF47101544820D00A7C545 /* CKGameTreeEnumerator.h */,
+				19FF47111544820D00A7C545 /* CKGameTreeEnumerator.m */,
 			);
 			path = ChessKit;
 			sourceTree = "<group>";
@@ -222,6 +234,8 @@
 				191FC24D149472FD00FB4F8E /* CKPosition+Private.h in Headers */,
 				1929C29D150BE4D6002A7A49 /* CKDatabase.h in Headers */,
 				1929C2A2150BE560002A7A49 /* CKGame.h in Headers */,
+				19FF470115446F7000A7C545 /* CKGameTree.h in Headers */,
+				19FF47121544820D00A7C545 /* CKGameTreeEnumerator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +343,8 @@
 				191FC24E149472FD00FB4F8E /* CKPosition+Private.m in Sources */,
 				1929C29E150BE4D6002A7A49 /* CKDatabase.m in Sources */,
 				1929C2A3150BE560002A7A49 /* CKGame.m in Sources */,
+				19FF470215446F7000A7C545 /* CKGameTree.m in Sources */,
+				19FF47131544820D00A7C545 /* CKGameTreeEnumerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,4 +10,7 @@
 
 @interface CKMutablePosition : CKPosition
 
+- (void)makeMove:(CKMove *)move;
+- (void)unmakeMove:(CKMove *)move;
+
 @end

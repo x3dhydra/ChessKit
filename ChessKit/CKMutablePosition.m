@@ -7,7 +7,18 @@
 //
 
 #import "CKMutablePosition.h"
+#import "CKPosition+Private.h"
 
 @implementation CKMutablePosition
+
+- (void)makeMove:(CKMove *)move
+{
+    [self makeMove:move withPosition:self];
+}
+
+- (void)unmakeMove:(CKMove *)move
+{
+    [self unmakeCastleMove:move withPosition:self];
+}
 
 @end
