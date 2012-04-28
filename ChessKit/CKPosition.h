@@ -11,6 +11,13 @@
 
 @class CKMove;
 
+enum
+{
+    CKBoardComparison = 1,              // Only look at the positioning of the pieces on the board
+    CKAbsolutePositionComparison = 2,   // Compare board position, en passant square, side to move, and castling rights, but ignore ply / halfmove clock
+};
+typedef NSUInteger CKPositionCompareOptions;
+
 @interface CKPosition : NSObject <NSCopying, NSMutableCopying>
 @property (nonatomic, readonly) CCMutableBoardRef board;
 @property (nonatomic, readonly, assign) CCCastlingRights castlingRights;
@@ -41,5 +48,6 @@
 // Comparison
 - (BOOL)isEqual:(id)object;
 - (BOOL)isEqualToPosition:(CKPosition *)position;
+- (BOOL)isEqualToPosition:(CKPosition *)position options:(CKPositionCompareOptions)options;  // Pass 0 for options to compare everything, including ply and halfmove clock
 
 @end

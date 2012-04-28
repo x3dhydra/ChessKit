@@ -15,6 +15,7 @@
 
 @interface CKPosition()
 {
+    @protected;
     CCMutableBoardRef _board;
     CCCastlingRights _castlingRights;
     CCSquare _epSquare;
@@ -97,7 +98,7 @@
         CCBoardSetSquareWithPiece(self.board, h7, BP);
         
         _castlingRights = CCCastlingRightsAll;
-        _sideToMove = White;
+        _sideToMove = CCWhite;
         _epSquare = InvalidSquare;
     }
     return self;
@@ -246,13 +247,13 @@
 - (void)makeRookMove:(CKMove *)move withPosition:(CKPosition *)position
 {
     // Reset castling rights when a rook moves
-    if (move.from == a1 && self.sideToMove == White)
+    if (move.from == a1 && self.sideToMove == CCWhite)
         position.castlingRights = position.castlingRights & ~CCCastlingRightsWhiteQueenside;
-    else if (move.from == h1 && self.sideToMove == White)
+    else if (move.from == h1 && self.sideToMove == CCWhite)
         position.castlingRights = position.castlingRights & ~CCCastlingRightsWhiteKingside;
-    else if (move.from == a8 && self.sideToMove == Black)
+    else if (move.from == a8 && self.sideToMove == CCBlack)
         position.castlingRights = position.castlingRights & ~CCCastlingRightsBlackQueenside;
-    else if (move.from == h8 && self.sideToMove == Black)
+    else if (move.from == h8 && self.sideToMove == CCBlack)
         position.castlingRights = position.castlingRights & ~CCCastlingRightsBlackKingside;
 }
 
@@ -277,13 +278,13 @@
             shouldCastle = NO;
         
         // Don't castle if the 
-        if ((to == g1) && (CCBoardIsSquareAttackedByColor(self.board, f1, Black)))
+        if ((to == g1) && (CCBoardIsSquareAttackedByColor(self.board, f1, CCBlack)))
             shouldCastle = NO;
-        else if ((to == c1) && (CCBoardIsSquareAttackedByColor(self.board, d1, Black)))
+        else if ((to == c1) && (CCBoardIsSquareAttackedByColor(self.board, d1, CCBlack)))
             shouldCastle = NO;
-        else if ((to == g8) && (CCBoardIsSquareAttackedByColor(self.board, f8, White)))
+        else if ((to == g8) && (CCBoardIsSquareAttackedByColor(self.board, f8, CCWhite)))
             shouldCastle = NO;
-        else if ((to == c8) && (CCBoardIsSquareAttackedByColor(self.board, d8, White)))
+        else if ((to == c8) && (CCBoardIsSquareAttackedByColor(self.board, d8, CCWhite)))
             shouldCastle = NO;
         
         if (shouldCastle)
@@ -291,7 +292,7 @@
     }
     
     // Reset castling rights for the side that moved the king
-    CCCastlingRights rights = (self.sideToMove == White) ? CCCastlingRightsWhiteBoth : CCCastlingRightsBlackBoth;
+    CCCastlingRights rights = (self.sideToMove == CCWhite) ? CCCastlingRightsWhiteBoth : CCCastlingRightsBlackBoth;
     position.castlingRights = position.castlingRights & ~rights;
 }
 
@@ -326,7 +327,7 @@
     if ([self isMoveDoubleJump:move])
     {
         // Set the en passant square for a double jump
-        if (self.sideToMove == White)
+        if (self.sideToMove == CCWhite)
             position.enPassantSquare = CCSquareNorthOne(move.from);
         else
             self.enPassantSquare = CCSquareSouthOne(move.from);
@@ -400,7 +401,7 @@
     CCColoredPiece king = CCBoardGetPieceAtSquare(self.board, from);
     CCColor color = CCColoredPieceGetColor(king);
     
-    if (color == White)
+    if (color == CCWhite)
     {
         if (from != e1 || (to != c1 && to != g1))
             return NO;  // Break early if not on the starting square
@@ -468,8 +469,8 @@
     CCSquare to   = move.to;
     CCColoredPiece piece = [self coloredPieceAtSquare:from];
     
-    signed char fromRank = CCColoredPieceGetColor(piece) == White ? 1 : 3;
-    signed char toRank   = CCColoredPieceGetColor(piece) == White ? 3 : 4;
+    signed char fromRank = CCColoredPieceGetColor(piece) == CCWhite ? 1 : 6;
+    signed char toRank   = CCColoredPieceGetColor(piece) == CCWhite ? 3 : 4;
     
     if ((CCSquareRank(from) != fromRank) || (to != CCSquareMake(toRank, CCSquareFile(to))))
         return NO;
@@ -486,7 +487,7 @@
     if (to != self.enPassantSquare)
         return NO;
     
-    if (self.sideToMove == White)
+    if (self.sideToMove == CCWhite)
     {
         if ((CCSquareNorthEastOne(from) == self.enPassantSquare) || (CCSquareNorthWestOne(from) == self.enPassantSquare))
             return CCColoredPieceEqualsColoredPiece([self coloredPieceAtSquare:CCSquareSouthOne(self.enPassantSquare)], BP);
@@ -520,7 +521,7 @@
 {
     CCBitboard b = EmptyBB;
     
-    if (color == White) {
+    if (color == CCWhite) {
         if (self.castlingRights & CCCastlingRightsWhiteKingside)
             b |= CCBitboardForSquare(g1);
         if (self.castlingRights & CCCastlingRightsWhiteQueenside)
@@ -573,10 +574,10 @@
         CCBitboard attack;
         CCBitboard opponents;
         
-        if (color == White) {
+        if (color == CCWhite) {
             push = CCBitboardGetWhitePawnPushTargets(pawn, CCBoardGetEmptySquares(self.board));
             attack    = CCBitboardGetWhitePawnAttacks(pawn);
-            opponents = CCBoardGetOccupiedSquaresForColor(self.board, Black);
+            opponents = CCBoardGetOccupiedSquaresForColor(self.board, CCBlack);
             
             if (CCSquareRank(self.enPassantSquare) == 5) 
                 opponents |= CCBitboardForSquare(self.enPassantSquare);
@@ -586,7 +587,7 @@
         { // color == Black
             push = CCBitboardGetBlackPawnPushTargets(pawn, CCBoardGetEmptySquares(self.board));
             attack = CCBitboardGetBlackPawnAttacks(pawn);
-            opponents = CCBoardGetOccupiedSquaresForColor(self.board, White);
+            opponents = CCBoardGetOccupiedSquaresForColor(self.board, CCWhite);
             if (CCSquareRank(self.enPassantSquare) == 2)
                 opponents |= CCBitboardForSquare(self.enPassantSquare);
         }
@@ -612,7 +613,10 @@
 {
     NSMutableString *desc = [NSMutableString stringWithString:NSStringFromCCBoard(self.board)];
     [desc appendFormat:@"\nCastling Rights: %d", self.castlingRights];
-    [desc appendFormat:@"\nSide to move: %@", self.sideToMove == White ? @"White" : @"Black"];
+    [desc appendFormat:@"\nSide to move: %@", self.sideToMove == CCWhite ? @"White" : @"Black"];
+    [desc appendFormat:@"\nEn Passant Square: %@", CCSquareName(self.enPassantSquare)];
+    [desc appendFormat:@"\nHalfmove clock: %d", self.halfmoveClock];
+    [desc appendFormat:@"\nPly: %d", self.ply];
     return desc;
 }
 
@@ -623,16 +627,35 @@
 
 - (BOOL)isEqualToPosition:(CKPosition *)position
 {
+    return [self isEqualToPosition:position options:0];
+}
+
+- (BOOL)isEqualToPosition:(CKPosition *)position options:(CKPositionCompareOptions)options
+{
     if (position == self)
         return YES;
     
-    BOOL equal = 
-    self.castlingRights == position.castlingRights &&
-    self.enPassantSquare == position.enPassantSquare &&
-    self.sideToMove == position.sideToMove &&
-    //self.halfmoveClock == position.halfmoveClock && // Not checking halfmove clock
-    //self.ply == position.ply &&  // Not checking ply
-    CCBoardEqualToBoard(self.board, position.board);
+    BOOL equal = NO;
+    
+    if (options == CKBoardComparison)
+        equal = CCBoardEqualToBoard(self.board, position.board);
+    else if (options == CKAbsolutePositionComparison)
+    {
+        equal = self.sideToMove == position.sideToMove &&
+                self.enPassantSquare == position.enPassantSquare &&
+                self.castlingRights == position.castlingRights &&
+                CCBoardEqualToBoard(self.board, position.board);
+    }
+    else if (!options)
+    {
+        equal = 
+        self.castlingRights == position.castlingRights &&
+        self.enPassantSquare == position.enPassantSquare &&
+        self.sideToMove == position.sideToMove &&
+        self.halfmoveClock == position.halfmoveClock &&
+        self.ply == position.ply &&
+        CCBoardEqualToBoard(self.board, position.board);
+    }
     
     return equal;
 }

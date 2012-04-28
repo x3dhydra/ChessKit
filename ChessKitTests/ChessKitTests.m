@@ -8,6 +8,7 @@
 
 #import "ChessKitTests.h"
 #import "CKGameTree.h"
+#import "CKFENHelper.h"
 
 @implementation ChessKitTests
 
@@ -38,7 +39,7 @@
     CKGameTree *root = tree;
     
     CKMove *move = [CKMove moveWithFrom:e2 to:e4];
-    NSLog(@"%@", move);
+    //NSLog(@"%@", move);
     [tree addMove:[CKMove moveWithFrom:e2 to:e4]];
     tree = [tree nextTree];
     
@@ -50,7 +51,7 @@
     
     for (CKGameTree *gameTree in [root mainLineEnumerator])
     {
-        NSLog(@"%@", [gameTree position]);
+        //NSLog(@"%@", [gameTree position]);
     }
     
     //NSLog(@"%@", [tree position]);

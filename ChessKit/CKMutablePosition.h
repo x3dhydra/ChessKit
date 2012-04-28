@@ -9,6 +9,11 @@
 #import "CKPosition.h"
 
 @interface CKMutablePosition : CKPosition
+@property (nonatomic, readwrite, assign) CCColor sideToMove;
+@property (nonatomic, readwrite, assign) CCCastlingRights castlingRights;
+@property (nonatomic, readwrite, assign) CCSquare enPassantSquare;
+@property (nonatomic, readwrite, assign) NSUInteger halfmoveClock;
+@property (nonatomic, readwrite, assign) NSUInteger ply;
 
 - (void)makeMove:(CKMove *)move;
 - (void)unmakeMove:(CKMove *)move;

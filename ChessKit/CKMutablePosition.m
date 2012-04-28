@@ -10,6 +10,11 @@
 #import "CKPosition+Private.h"
 
 @implementation CKMutablePosition
+@dynamic ply;
+@dynamic sideToMove;
+@dynamic enPassantSquare;
+@dynamic halfmoveClock;
+@dynamic castlingRights;
 
 - (void)makeMove:(CKMove *)move
 {
