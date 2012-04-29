@@ -11,3 +11,4 @@
 #import "CKMove.h"
 #import "CKGameTree.h"
 #import "CKDatabase.h"
+#import "CKGame.h"

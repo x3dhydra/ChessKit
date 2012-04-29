@@ -20,9 +20,10 @@
  position.
  */
 @interface CKGameTree : NSObject
-@property (nonatomic, readonly) NSArray *children;
+@property (strong, nonatomic, readonly) NSArray *children;
 @property (nonatomic, readonly, weak) CKGameTree *parent;
 @property (nonatomic, readonly, strong) CKMove *move;
+@property (nonatomic, strong) NSString *comment;
 
 - (CKPosition *)position;
 

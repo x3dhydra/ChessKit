@@ -25,6 +25,7 @@
 @implementation CKGameTree
 @synthesize move = _move;
 @synthesize parent = _parent;
+@synthesize comment = _comment;
 
 - (void)commonInit
 {
@@ -150,6 +151,20 @@
 - (void)setPosition:(CKPosition *)position
 {
     _position = position;
+}
+
+- (NSString *)description
+{
+    NSMutableString *string = [NSMutableString string];
+    [string appendFormat:@"<%@ %p>", [self class], self];
+    if (self.move)
+        [string appendFormat:@" %@", self.move];
+    if (self.comment)
+        [string appendFormat:@" \"%@\"", self.comment];
+    if (self.children.count)
+        [string appendFormat:@"\n%@", [self valueForKeyPath:@"children.move"]];
+    
+    return string;
 }
 
 @end

@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		191FC2131494415600FB4F8E /* libCoreChess.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 191FC2121494415600FB4F8E /* libCoreChess.a */; };
 		191FC2171494417D00FB4F8E /* CKPosition.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC2151494417D00FB4F8E /* CKPosition.h */; };
-		191FC2181494417D00FB4F8E /* CKPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 191FC2161494417D00FB4F8E /* CKPosition.m */; };
+		191FC2181494417D00FB4F8E /* CKPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 191FC2161494417D00FB4F8E /* CKPosition.m */; settings = {COMPILER_FLAGS = ""; }; };
 		191FC21B1494419000FB4F8E /* CKMutablePosition.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC2191494419000FB4F8E /* CKMutablePosition.h */; };
-		191FC21C1494419000FB4F8E /* CKMutablePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 191FC21A1494419000FB4F8E /* CKMutablePosition.m */; };
+		191FC21C1494419000FB4F8E /* CKMutablePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 191FC21A1494419000FB4F8E /* CKMutablePosition.m */; settings = {COMPILER_FLAGS = ""; }; };
 		191FC227149460A300FB4F8E /* CCBitboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC21E149460A300FB4F8E /* CCBitboard.h */; };
 		191FC229149460A300FB4F8E /* CCBoard.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC220149460A300FB4F8E /* CCBoard.h */; };
 		191FC22B149460A300FB4F8E /* CCCastlingRights.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC222149460A300FB4F8E /* CCCastlingRights.h */; };
@@ -19,17 +19,28 @@
 		191FC22E149460A300FB4F8E /* CCSquare.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC225149460A300FB4F8E /* CCSquare.h */; };
 		191FC231149460A900FB4F8E /* CoreChess.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC230149460A900FB4F8E /* CoreChess.h */; };
 		191FC2341494625100FB4F8E /* CKMove.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC2321494625100FB4F8E /* CKMove.h */; };
-		191FC2351494625100FB4F8E /* CKMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 191FC2331494625100FB4F8E /* CKMove.m */; };
+		191FC2351494625100FB4F8E /* CKMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 191FC2331494625100FB4F8E /* CKMove.m */; settings = {COMPILER_FLAGS = ""; }; };
 		191FC24114946ECD00FB4F8E /* CCBoard+MoveGeneration.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC23F14946ECD00FB4F8E /* CCBoard+MoveGeneration.h */; };
 		191FC24514946ED300FB4F8E /* CCBitboard+MoveGeneration.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC24314946ED300FB4F8E /* CCBitboard+MoveGeneration.h */; };
 		191FC24D149472FD00FB4F8E /* CKPosition+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC24B149472FD00FB4F8E /* CKPosition+Private.h */; };
-		191FC24E149472FD00FB4F8E /* CKPosition+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 191FC24C149472FD00FB4F8E /* CKPosition+Private.m */; };
+		191FC24E149472FD00FB4F8E /* CKPosition+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 191FC24C149472FD00FB4F8E /* CKPosition+Private.m */; settings = {COMPILER_FLAGS = ""; }; };
 		1929C29D150BE4D6002A7A49 /* CKDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 1929C29B150BE4D6002A7A49 /* CKDatabase.h */; };
-		1929C29E150BE4D6002A7A49 /* CKDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1929C29C150BE4D6002A7A49 /* CKDatabase.m */; };
+		1929C29E150BE4D6002A7A49 /* CKDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1929C29C150BE4D6002A7A49 /* CKDatabase.m */; settings = {COMPILER_FLAGS = ""; }; };
 		1929C2A2150BE560002A7A49 /* CKGame.h in Headers */ = {isa = PBXBuildFile; fileRef = 1929C2A0150BE560002A7A49 /* CKGame.h */; };
-		1929C2A3150BE560002A7A49 /* CKGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1929C2A1150BE560002A7A49 /* CKGame.m */; };
+		1929C2A3150BE560002A7A49 /* CKGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1929C2A1150BE560002A7A49 /* CKGame.m */; settings = {COMPILER_FLAGS = ""; }; };
+		195F99B4154C9F03007C87E1 /* CKPGNTokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 195F99B1154C9F03007C87E1 /* CKPGNTokenizer.h */; };
+		195F99B5154C9F03007C87E1 /* CKPGNTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 195F99B2154C9F03007C87E1 /* CKPGNTokenizer.m */; };
+		195F99B6154C9F03007C87E1 /* Tokens.h in Headers */ = {isa = PBXBuildFile; fileRef = 195F99B3154C9F03007C87E1 /* Tokens.h */; };
+		195F99B9154C9F1E007C87E1 /* CKGameTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 195F99B8154C9F1E007C87E1 /* CKGameTypes.h */; };
+		195F99BC154CA0B7007C87E1 /* CKPGNGameBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 195F99BA154CA0B7007C87E1 /* CKPGNGameBuilder.h */; };
+		195F99BD154CA0B7007C87E1 /* CKPGNGameBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 195F99BB154CA0B7007C87E1 /* CKPGNGameBuilder.m */; };
+		195F99C0154CA5B2007C87E1 /* CKPGNGameBuilderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 195F99BF154CA5B2007C87E1 /* CKPGNGameBuilderTestCase.m */; };
+		195F99C2154CA688007C87E1 /* Sample.pgn in Resources */ = {isa = PBXBuildFile; fileRef = 195F99C1154CA688007C87E1 /* Sample.pgn */; };
+		195F99C5154CAEA3007C87E1 /* CKSANHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 195F99C3154CAEA3007C87E1 /* CKSANHelper.h */; };
+		195F99C6154CAEA3007C87E1 /* CKSANHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 195F99C4154CAEA3007C87E1 /* CKSANHelper.m */; };
+		195F99D5154CD5D7007C87E1 /* Variations.pgn in Resources */ = {isa = PBXBuildFile; fileRef = 195F99D4154CD5D7007C87E1 /* Variations.pgn */; };
 		199A5125154641B6008FC3E7 /* CKFENHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 199A5123154641B6008FC3E7 /* CKFENHelper.h */; };
-		199A5126154641B6008FC3E7 /* CKFENHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 199A5124154641B6008FC3E7 /* CKFENHelper.m */; };
+		199A5126154641B6008FC3E7 /* CKFENHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 199A5124154641B6008FC3E7 /* CKFENHelper.m */; settings = {COMPILER_FLAGS = ""; }; };
 		199A5168154C5918008FC3E7 /* FENTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 199A5167154C5918008FC3E7 /* FENTestCase.m */; };
 		199A516C154C673D008FC3E7 /* PositionTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 199A516B154C673D008FC3E7 /* PositionTestCase.m */; };
 		19F2777C146DAAE700B58AB1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F2777B146DAAE700B58AB1 /* Foundation.framework */; };
@@ -40,11 +51,11 @@
 		19F27796146DAAE700B58AB1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 19F27794146DAAE700B58AB1 /* InfoPlist.strings */; };
 		19F27799146DAAE700B58AB1 /* ChessKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F27798146DAAE700B58AB1 /* ChessKitTests.m */; };
 		19FF470115446F7000A7C545 /* CKGameTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 19FF46FF15446F7000A7C545 /* CKGameTree.h */; };
-		19FF470215446F7000A7C545 /* CKGameTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FF470015446F7000A7C545 /* CKGameTree.m */; };
+		19FF470215446F7000A7C545 /* CKGameTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FF470015446F7000A7C545 /* CKGameTree.m */; settings = {COMPILER_FLAGS = ""; }; };
 		19FF47121544820D00A7C545 /* CKGameTreeEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 19FF47101544820D00A7C545 /* CKGameTreeEnumerator.h */; };
-		19FF47131544820D00A7C545 /* CKGameTreeEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FF47111544820D00A7C545 /* CKGameTreeEnumerator.m */; };
+		19FF47131544820D00A7C545 /* CKGameTreeEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FF47111544820D00A7C545 /* CKGameTreeEnumerator.m */; settings = {COMPILER_FLAGS = ""; }; };
 		19FF471815449BB400A7C545 /* CKPGNDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 19FF471615449BB400A7C545 /* CKPGNDatabase.h */; };
-		19FF471915449BB400A7C545 /* CKPGNDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FF471715449BB400A7C545 /* CKPGNDatabase.m */; };
+		19FF471915449BB400A7C545 /* CKPGNDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FF471715449BB400A7C545 /* CKPGNDatabase.m */; settings = {COMPILER_FLAGS = ""; }; };
 		19FF471B1544A0AD00A7C545 /* 2500.pgn in Resources */ = {isa = PBXBuildFile; fileRef = 19FF471A1544A0AD00A7C545 /* 2500.pgn */; };
 		19FF47861544AAA200A7C545 /* twic910.pgn in Resources */ = {isa = PBXBuildFile; fileRef = 19FF47851544AAA200A7C545 /* twic910.pgn */; };
 /* End PBXBuildFile section */
@@ -81,6 +92,18 @@
 		1929C29C150BE4D6002A7A49 /* CKDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKDatabase.m; sourceTree = "<group>"; };
 		1929C2A0150BE560002A7A49 /* CKGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKGame.h; sourceTree = "<group>"; };
 		1929C2A1150BE560002A7A49 /* CKGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKGame.m; sourceTree = "<group>"; };
+		195F99B1154C9F03007C87E1 /* CKPGNTokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKPGNTokenizer.h; path = PGN/CKPGNTokenizer.h; sourceTree = "<group>"; };
+		195F99B2154C9F03007C87E1 /* CKPGNTokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKPGNTokenizer.m; path = PGN/CKPGNTokenizer.m; sourceTree = "<group>"; };
+		195F99B3154C9F03007C87E1 /* Tokens.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tokens.h; path = PGN/Tokens.h; sourceTree = "<group>"; };
+		195F99B8154C9F1E007C87E1 /* CKGameTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKGameTypes.h; sourceTree = "<group>"; };
+		195F99BA154CA0B7007C87E1 /* CKPGNGameBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKPGNGameBuilder.h; path = PGN/CKPGNGameBuilder.h; sourceTree = "<group>"; };
+		195F99BB154CA0B7007C87E1 /* CKPGNGameBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKPGNGameBuilder.m; path = PGN/CKPGNGameBuilder.m; sourceTree = "<group>"; };
+		195F99BE154CA5B2007C87E1 /* CKPGNGameBuilderTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKPGNGameBuilderTestCase.h; sourceTree = "<group>"; };
+		195F99BF154CA5B2007C87E1 /* CKPGNGameBuilderTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKPGNGameBuilderTestCase.m; sourceTree = "<group>"; };
+		195F99C1154CA688007C87E1 /* Sample.pgn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sample.pgn; sourceTree = "<group>"; };
+		195F99C3154CAEA3007C87E1 /* CKSANHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKSANHelper.h; path = PGN/CKSANHelper.h; sourceTree = "<group>"; };
+		195F99C4154CAEA3007C87E1 /* CKSANHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKSANHelper.m; path = PGN/CKSANHelper.m; sourceTree = "<group>"; };
+		195F99D4154CD5D7007C87E1 /* Variations.pgn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Variations.pgn; path = Resources/Variations.pgn; sourceTree = "<group>"; };
 		199A5123154641B6008FC3E7 /* CKFENHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKFENHelper.h; sourceTree = "<group>"; };
 		199A5124154641B6008FC3E7 /* CKFENHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKFENHelper.m; sourceTree = "<group>"; };
 		199A5166154C5918008FC3E7 /* FENTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FENTestCase.h; sourceTree = "<group>"; };
@@ -194,6 +217,7 @@
 		19F2777D146DAAE700B58AB1 /* ChessKit */ = {
 			isa = PBXGroup;
 			children = (
+				195F99B8154C9F1E007C87E1 /* CKGameTypes.h */,
 				199A5121154641A4008FC3E7 /* FEN */,
 				19FF471515449B8800A7C545 /* PGN */,
 				191FC21D149460A300FB4F8E /* CoreChess */,
@@ -234,6 +258,8 @@
 				199A5167154C5918008FC3E7 /* FENTestCase.m */,
 				199A516A154C673D008FC3E7 /* PositionTestCase.h */,
 				199A516B154C673D008FC3E7 /* PositionTestCase.m */,
+				195F99BE154CA5B2007C87E1 /* CKPGNGameBuilderTestCase.h */,
+				195F99BF154CA5B2007C87E1 /* CKPGNGameBuilderTestCase.m */,
 			);
 			path = ChessKitTests;
 			sourceTree = "<group>";
@@ -250,8 +276,15 @@
 		19FF471515449B8800A7C545 /* PGN */ = {
 			isa = PBXGroup;
 			children = (
+				195F99C3154CAEA3007C87E1 /* CKSANHelper.h */,
+				195F99C4154CAEA3007C87E1 /* CKSANHelper.m */,
+				195F99B1154C9F03007C87E1 /* CKPGNTokenizer.h */,
+				195F99B2154C9F03007C87E1 /* CKPGNTokenizer.m */,
+				195F99B3154C9F03007C87E1 /* Tokens.h */,
 				19FF471615449BB400A7C545 /* CKPGNDatabase.h */,
 				19FF471715449BB400A7C545 /* CKPGNDatabase.m */,
+				195F99BA154CA0B7007C87E1 /* CKPGNGameBuilder.h */,
+				195F99BB154CA0B7007C87E1 /* CKPGNGameBuilder.m */,
 			);
 			name = PGN;
 			sourceTree = "<group>";
@@ -261,6 +294,8 @@
 			children = (
 				19FF47851544AAA200A7C545 /* twic910.pgn */,
 				19FF471A1544A0AD00A7C545 /* 2500.pgn */,
+				195F99C1154CA688007C87E1 /* Sample.pgn */,
+				195F99D4154CD5D7007C87E1 /* Variations.pgn */,
 			);
 			name = "New Group";
 			sourceTree = "<group>";
@@ -290,6 +325,11 @@
 				19FF47121544820D00A7C545 /* CKGameTreeEnumerator.h in Headers */,
 				19FF471815449BB400A7C545 /* CKPGNDatabase.h in Headers */,
 				199A5125154641B6008FC3E7 /* CKFENHelper.h in Headers */,
+				195F99B4154C9F03007C87E1 /* CKPGNTokenizer.h in Headers */,
+				195F99B6154C9F03007C87E1 /* Tokens.h in Headers */,
+				195F99B9154C9F1E007C87E1 /* CKGameTypes.h in Headers */,
+				195F99BC154CA0B7007C87E1 /* CKPGNGameBuilder.h in Headers */,
+				195F99C5154CAEA3007C87E1 /* CKSANHelper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +407,8 @@
 				19F27796146DAAE700B58AB1 /* InfoPlist.strings in Resources */,
 				19FF471B1544A0AD00A7C545 /* 2500.pgn in Resources */,
 				19FF47861544AAA200A7C545 /* twic910.pgn in Resources */,
+				195F99C2154CA688007C87E1 /* Sample.pgn in Resources */,
+				195F99D5154CD5D7007C87E1 /* Variations.pgn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +445,9 @@
 				19FF47131544820D00A7C545 /* CKGameTreeEnumerator.m in Sources */,
 				19FF471915449BB400A7C545 /* CKPGNDatabase.m in Sources */,
 				199A5126154641B6008FC3E7 /* CKFENHelper.m in Sources */,
+				195F99B5154C9F03007C87E1 /* CKPGNTokenizer.m in Sources */,
+				195F99BD154CA0B7007C87E1 /* CKPGNGameBuilder.m in Sources */,
+				195F99C6154CAEA3007C87E1 /* CKSANHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +458,7 @@
 				19F27799146DAAE700B58AB1 /* ChessKitTests.m in Sources */,
 				199A5168154C5918008FC3E7 /* FENTestCase.m in Sources */,
 				199A516C154C673D008FC3E7 /* PositionTestCase.m in Sources */,
+				195F99C0154CA5B2007C87E1 /* CKPGNGameBuilderTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -26,4 +26,9 @@
     [self unmakeCastleMove:move withPosition:self];
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    return [CKPosition positionWithPosition:self];
+}
+
 @end

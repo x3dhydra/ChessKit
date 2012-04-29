@@ -11,7 +11,7 @@
 @class CKGame;
 
 @interface CKDatabase : NSObject
-@property (nonatomic, readonly) NSURL *url;
+@property (strong, nonatomic, readonly) NSURL *url;
 
 + (id)databaseWithContentsOfFile:(NSString *)file;
 + (id)databaseWithContentsOfURL:(NSURL *)url;

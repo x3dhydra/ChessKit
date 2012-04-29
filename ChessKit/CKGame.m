@@ -7,7 +7,67 @@
 //
 
 #import "CKGame.h"
+#import "CKGameTree.h"
+
+@interface CKGame()
+{
+    NSMutableDictionary *_metadata;
+    CKGameTree *_gameTree;
+}
+
+@end
 
 @implementation CKGame
+@synthesize metadata = _metadata;
+
++ (id)game
+{
+    return [self gameWithStartingPosition:nil];
+}
+
++ (id)gameWithStartingPosition:(CKPosition *)position
+{
+    return [[self alloc] initWithPosition:position];
+}
+
+- (id)initWithStartingPosition:(CKPosition *)position
+{
+    self = [super init];
+    if (self)
+    {
+        if (!position)
+            position = [CKPosition standardPosition];
+        
+        _gameTree = [[CKGameTree alloc] initWithPosition:position];
+    }
+    return self;
+}
+
+- (void)setMetadata:(NSDictionary *)metadata
+{
+    _metadata = [NSMutableDictionary dictionaryWithDictionary:metadata];
+}
+
+- (NSDictionary *)metadata
+{
+    if (!_metadata)
+        _metadata = [NSMutableDictionary dictionary];
+    return _metadata;
+}
+
+- (CKPosition *)startPosition
+{
+    return [self.gameTree position];
+}
+
+- (CKPosition *)endPosition
+{
+    return [[self.gameTree endOfLine] position];
+}
+
+- (CKGameTree *)gameTree
+{
+    return _gameTree;
+}
 
 @end

@@ -11,6 +11,7 @@
 #import "CKGameTree.h"
 
 @interface CKGame : NSObject
+@property (nonatomic, strong) NSDictionary *metadata;
 
 + (id)game;
 + (id)gameWithStartingPosition:(CKPosition *)position;
@@ -20,8 +21,7 @@
 - (CKPosition *)startPosition;
 - (CKPosition *)endPosition;
 
-// 
-- (NSDictionary *)metadata;
+- (CKGameTree *)gameTree;
 
 // Seven Tag Roster (STR)
 - (NSString *)whitePlayer;

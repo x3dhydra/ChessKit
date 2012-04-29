@@ -611,7 +611,9 @@
 
 - (NSString *)description
 {
-    NSMutableString *desc = [NSMutableString stringWithString:NSStringFromCCBoard(self.board)];
+    NSMutableString *desc = [NSMutableString string];
+    [desc appendFormat:@"<%@ %p>\n", [self class], self];
+    [desc appendString:NSStringFromCCBoard(self.board)];
     [desc appendFormat:@"\nCastling Rights: %d", self.castlingRights];
     [desc appendFormat:@"\nSide to move: %@", self.sideToMove == CCWhite ? @"White" : @"Black"];
     [desc appendFormat:@"\nEn Passant Square: %@", CCSquareName(self.enPassantSquare)];
