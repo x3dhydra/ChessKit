@@ -62,5 +62,11 @@
     return nil;
 }
 
+- (NSDictionary *)metadataAtIndex:(NSUInteger)index
+{
+    [NSException raise:NSGenericException format:@"%@ must be implemented in a concrete subclass", NSStringFromSelector(_cmd)];
+    return nil;
+}
+
 
 @end

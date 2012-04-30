@@ -71,3 +71,11 @@
 }
 
 @end
+
+NSString *const CKGameEventKey = @"Event";
+NSString *const CKGameSiteKey = @"Site";
+NSString *const CKGameDateKey = @"Date";
+NSString *const CKGameRoundKey = @"Round";
+NSString *const CKGameWhitePlayerKey = @"White";
+NSString *const CKGameBlackPlayerKey = @"Black";
+NSString *const CKGameResultKey = @"Result";

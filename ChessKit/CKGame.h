@@ -34,10 +34,10 @@
 
 @end
 
+extern NSString *const CKGameEventKey;
+extern NSString *const CKGameSiteKey;
+extern NSString *const CKGameDateKey;
+extern NSString *const CKGameRoundKey;
 extern NSString *const CKGameWhitePlayerKey;
 extern NSString *const CKGameBlackPlayerKey;
-extern NSString *const CKGameLocationKey;
-extern NSString *const CKGameDateKey;
-extern NSString *const CKGameWhiteELOKey;
-extern NSString *const CKGameBlackELOKey;
-extern NSString *const CKGameRoundKey;
+extern NSString *const CKGameResultKey;

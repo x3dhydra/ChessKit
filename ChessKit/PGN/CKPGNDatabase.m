@@ -7,12 +7,14 @@
 //
 
 #import "CKPGNDatabase.h"
+#import "CKPGNGameBuilder.h"
 
 @interface CKPGNDatabase()
 {
-    NSData *_databaseData;
     NSString *_databaseString;
     NSMutableArray *_gameRanges;
+    NSData *_gameData;
+    NSCache *_metadataCache;
 }
 @end
 
@@ -23,12 +25,11 @@
     self = [super initWithContentsOfURL:url];
     if (self)
     {
-        //_databaseData = [NSData dataWithContentsOfMappedFile:[url path]];
-        //_databaseString = [[NSString alloc] initWithBytesNoCopy:_databaseData.bytes length:[_databaseData length] encoding:NSUTF8StringEncoding freeWhenDone:NO];
+        _gameData = [NSData dataWithContentsOfMappedFile:[url path]];
+        _databaseString = [[NSString alloc] initWithBytesNoCopy:_gameData.bytes length:[_gameData length] encoding:NSUTF8StringEncoding freeWhenDone:NO];
         _gameRanges = [[NSMutableArray alloc] init];
+        _metadataCache = [[NSCache alloc] init];
         [self parseDatabaseC];
-        //_databaseData = [NSData dataWithContentsOfURL:url options:NSDataReadingMappedAlways error:NULL];
-        //_databaseString = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:NULL];
     }
     return self;
 }
@@ -40,7 +41,33 @@
 
 - (CKGame *)gameAtIndex:(NSUInteger)index
 {
-    return 0;
+    NSString *gameText = [self gameStringAtIndex:index];
+    CKPGNGameBuilder *builder = [[CKPGNGameBuilder alloc] initWithString:gameText];
+    NSLog(@"%@", gameText);
+    return builder.game;
+}
+
+- (NSDictionary *)metadataAtIndex:(NSUInteger)index
+{
+    id key = [NSNumber numberWithUnsignedInteger:index];
+    
+    NSDictionary *metadata = [_metadataCache objectForKey:key];
+    if (!metadata)
+    {
+        CKPGNGameBuilder *builder = [[CKPGNGameBuilder alloc] initWithString:[self gameStringAtIndex:index] options:CKPGNMetadataOnly];
+        metadata = builder.metadata;
+        if (metadata)
+            [_metadataCache setObject:metadata forKey:key];
+    }
+    
+    return metadata;
+}
+
+- (NSString *)gameStringAtIndex:(NSUInteger)index
+{
+    NSRange range = [[_gameRanges objectAtIndex:index] rangeValue];
+    NSString *gameText = [_databaseString substringWithRange:range];
+    return gameText;
 }
 
 // Parses the database using C functions

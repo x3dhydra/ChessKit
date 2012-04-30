@@ -23,6 +23,7 @@ static inline BOOL CKTokenIsTagPair(CCTokenType token)
 @interface CKPGNGameBuilder()
 {
     CKGame *_game;
+    NSDictionary *_metadata;
     NSInteger _variationDepth;
 }
 @property (nonatomic, strong) NSMutableArray *variationStack;
@@ -87,8 +88,6 @@ static inline BOOL CKTokenIsTagPair(CCTokenType token)
         
     } while (token && CKTokenIsTagPair(tokenType));
     
-    NSLog(@"Metadata: %@", metadata);
-    
     CKMutablePosition *position = nil;;
     
     NSString *fen = [metadata objectForKey:@"FEN"];
@@ -108,8 +107,16 @@ static inline BOOL CKTokenIsTagPair(CCTokenType token)
         position = [CKMutablePosition standardPosition];
     }
     
+    _metadata = metadata;
+    
+    // Break early if we only want the metadata
+    if (self.options == CKPGNMetadataOnly)
+        return;
+    
     _game = [[CKGame alloc] initWithStartingPosition:position];
     [_game setMetadata:metadata];
+    
+    
     
     CKGameTree *tree = _game.gameTree;
     
@@ -182,6 +189,15 @@ static inline BOOL CKTokenIsTagPair(CCTokenType token)
     if (!_variationStack)
         _variationStack = [[NSMutableArray alloc] init];
     return _variationStack;
+}
+
+- (NSDictionary *)metadata
+{
+    if (!_metadata)
+    {
+        [self buildGame];
+    }
+    return _metadata;
 }
 
 @end

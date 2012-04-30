@@ -21,5 +21,6 @@
 
 - (NSUInteger)count;
 - (CKGame *)gameAtIndex:(NSUInteger)index;
+- (NSDictionary *)metadataAtIndex:(NSUInteger)index;
 
 @end

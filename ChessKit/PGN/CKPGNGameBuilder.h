@@ -12,6 +12,7 @@ enum
 {
     CKPGNFullFormat = 0,
     CKPGNReducedFormat = 1,  // Ignores variations
+    CKPGNMetadataOnly = 2,
 };
 typedef NSUInteger CKGameBuilderOptions;
 
@@ -25,6 +26,7 @@ typedef NSUInteger CKGameBuilderOptions;
 - (id)initWithString:(NSString *)gameText options:(CKGameBuilderOptions)options;
 
 - (CKGame *)game;
+- (NSDictionary *)metadata;
 
 @end
 
