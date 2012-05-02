@@ -26,6 +26,8 @@
 @synthesize move = _move;
 @synthesize parent = _parent;
 @synthesize comment = _comment;
+@synthesize moveString = _moveString;
+@synthesize annotationGlyphs = _annotationGlyphs;
 
 - (void)commonInit
 {

@@ -24,6 +24,8 @@
 @property (nonatomic, readonly, weak) CKGameTree *parent;
 @property (nonatomic, readonly, strong) CKMove *move;
 @property (nonatomic, strong) NSString *comment;
+@property (nonatomic, strong) NSString *moveString;
+@property (nonatomic, strong) NSIndexSet *annotationGlyphs;
 
 - (CKPosition *)position;
 

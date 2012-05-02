@@ -142,6 +142,7 @@ static inline BOOL CKTokenIsTagPair(CCTokenType token)
                 CKMove *move = [CKSANHelper moveFromString:token withPosition:position];
                 [tree addMove:move withValidation:NO];
                 tree = [tree.children lastObject];
+                tree.moveString = token;
                 [position makeMove:move];
             }
                 break;

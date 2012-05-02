@@ -9,6 +9,9 @@
 #import "CKPGNDatabase.h"
 #import "CKPGNGameBuilder.h"
 
+static NSString * const CKPGNLastModifiedDateKey = @"kPGNLastModifiedDateKey";
+static NSString * const CKPGNGameRangesKey = @"kPGNGameRangesKey";
+
 @interface CKPGNDatabase()
 {
     NSString *_databaseString;
@@ -29,7 +32,7 @@
         _databaseString = [[NSString alloc] initWithBytesNoCopy:_gameData.bytes length:[_gameData length] encoding:NSUTF8StringEncoding freeWhenDone:NO];
         _gameRanges = [[NSMutableArray alloc] init];
         _metadataCache = [[NSCache alloc] init];
-        [self parseDatabaseC];
+        [self loadDatabase];
     }
     return self;
 }
@@ -68,6 +71,47 @@
     NSRange range = [[_gameRanges objectAtIndex:index] rangeValue];
     NSString *gameText = [_databaseString substringWithRange:range];
     return gameText;
+}
+
+- (NSURL *)pathForIndexFile
+{
+    return [[self.url URLByDeletingPathExtension] URLByAppendingPathExtension:@"pgi"];
+}
+
+- (void)loadDatabase
+{
+    NSURL *url = [self pathForIndexFile];
+    
+    NSDictionary *metadata = [[NSFileManager defaultManager] attributesOfItemAtPath:[self.url path] error:NULL];
+    NSDate *lastModified = [metadata objectForKey:NSFileModificationDate];
+    
+    // Attempt to load the index file, which will keep us from having to re-parse the PGN every time it's loaded
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[url path]])
+    {
+        NSDictionary *index = [NSDictionary dictionaryWithContentsOfURL:url];
+        NSDate *date = [index objectForKey:CKPGNLastModifiedDateKey];
+        
+        // If the database hasn't been modified since we last parsed it, then the index is good.  Load and return early
+        if ([date compare:lastModified] != NSOrderedAscending)
+        {
+            _gameRanges = [metadata objectForKey:CKPGNGameRangesKey];
+            return;
+        }
+        else 
+        {
+            // Otherwise discard it
+            [[NSFileManager defaultManager] removeItemAtURL:url error:NULL];
+        }
+    }
+    
+    [self parseDatabaseC];
+    
+    // Save the metadata so that we can use it in the future.
+    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                lastModified, CKPGNLastModifiedDateKey,
+                                _gameRanges, CKPGNGameRangesKey,
+                                nil];
+    [dictionary writeToURL:url atomically:YES];
 }
 
 // Parses the database using C functions
