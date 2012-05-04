@@ -166,7 +166,8 @@
         return nil;
     
     // Convert from ful move to ply since that's how it's represented in position
-    int ply = (fullMove - 1) * 2 + position.sideToMove == CCWhite ? 0 : 1;
+    int ply = (fullMove - 1) * 2;
+    ply += position.sideToMove == CCWhite ? 0 : 1;
     position.ply = ply;
     
     return position;

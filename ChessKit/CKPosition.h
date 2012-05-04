@@ -50,4 +50,6 @@ typedef NSUInteger CKPositionCompareOptions;
 - (BOOL)isEqualToPosition:(CKPosition *)position;
 - (BOOL)isEqualToPosition:(CKPosition *)position options:(CKPositionCompareOptions)options;  // Pass 0 for options to compare everything, including ply and halfmove clock
 
+- (NSUInteger)moveNumber;
+
 @end

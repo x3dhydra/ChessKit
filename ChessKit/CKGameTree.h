@@ -49,5 +49,6 @@
 - (CKGameTree *)endOfLine;
 
 - (NSEnumerator *)mainLineEnumerator;
+- (BOOL)hasVariations;
 
 @end

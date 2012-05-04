@@ -155,6 +155,28 @@
     _position = position;
 }
 
+- (BOOL)hasVariations
+{
+    BOOL hasVariations = NO;
+    
+    CKGameTree *tree = self;
+    while (tree)
+    {
+        if (tree.children.count == 0)
+            break;
+        
+        if (tree.children.count > 1)
+        {
+            hasVariations = YES;
+            break;
+        }
+        
+        tree = tree.nextTree;
+    }
+    
+    return hasVariations;
+}
+
 - (NSString *)description
 {
     NSMutableString *string = [NSMutableString string];

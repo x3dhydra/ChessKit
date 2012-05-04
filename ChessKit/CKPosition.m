@@ -607,6 +607,11 @@
     return (toBB & moves) != 0;
 }
 
+- (NSUInteger)moveNumber
+{
+    return (self.ply / 2) + 1;
+}
+
 #pragma mark - NSObject
 
 - (NSString *)description

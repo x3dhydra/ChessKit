@@ -39,6 +39,8 @@
 		195F99C5154CAEA3007C87E1 /* CKSANHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 195F99C3154CAEA3007C87E1 /* CKSANHelper.h */; };
 		195F99C6154CAEA3007C87E1 /* CKSANHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 195F99C4154CAEA3007C87E1 /* CKSANHelper.m */; };
 		195F99D5154CD5D7007C87E1 /* Variations.pgn in Resources */ = {isa = PBXBuildFile; fileRef = 195F99D4154CD5D7007C87E1 /* Variations.pgn */; };
+		1968B1AD1552365B0027DC0E /* CKGameFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1968B1AB1552365B0027DC0E /* CKGameFormatter.h */; };
+		1968B1AE1552365B0027DC0E /* CKGameFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1968B1AC1552365B0027DC0E /* CKGameFormatter.m */; };
 		199A5125154641B6008FC3E7 /* CKFENHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 199A5123154641B6008FC3E7 /* CKFENHelper.h */; };
 		199A5126154641B6008FC3E7 /* CKFENHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 199A5124154641B6008FC3E7 /* CKFENHelper.m */; settings = {COMPILER_FLAGS = ""; }; };
 		199A5168154C5918008FC3E7 /* FENTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 199A5167154C5918008FC3E7 /* FENTestCase.m */; };
@@ -104,6 +106,8 @@
 		195F99C3154CAEA3007C87E1 /* CKSANHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKSANHelper.h; path = PGN/CKSANHelper.h; sourceTree = "<group>"; };
 		195F99C4154CAEA3007C87E1 /* CKSANHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKSANHelper.m; path = PGN/CKSANHelper.m; sourceTree = "<group>"; };
 		195F99D4154CD5D7007C87E1 /* Variations.pgn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Variations.pgn; path = Resources/Variations.pgn; sourceTree = "<group>"; };
+		1968B1AB1552365B0027DC0E /* CKGameFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKGameFormatter.h; sourceTree = "<group>"; };
+		1968B1AC1552365B0027DC0E /* CKGameFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKGameFormatter.m; sourceTree = "<group>"; };
 		199A5123154641B6008FC3E7 /* CKFENHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKFENHelper.h; sourceTree = "<group>"; };
 		199A5124154641B6008FC3E7 /* CKFENHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKFENHelper.m; sourceTree = "<group>"; };
 		199A5166154C5918008FC3E7 /* FENTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FENTestCase.h; sourceTree = "<group>"; };
@@ -235,6 +239,8 @@
 				1929C2A1150BE560002A7A49 /* CKGame.m */,
 				19FF47101544820D00A7C545 /* CKGameTreeEnumerator.h */,
 				19FF47111544820D00A7C545 /* CKGameTreeEnumerator.m */,
+				1968B1AB1552365B0027DC0E /* CKGameFormatter.h */,
+				1968B1AC1552365B0027DC0E /* CKGameFormatter.m */,
 			);
 			path = ChessKit;
 			sourceTree = "<group>";
@@ -330,6 +336,7 @@
 				195F99B9154C9F1E007C87E1 /* CKGameTypes.h in Headers */,
 				195F99BC154CA0B7007C87E1 /* CKPGNGameBuilder.h in Headers */,
 				195F99C5154CAEA3007C87E1 /* CKSANHelper.h in Headers */,
+				1968B1AD1552365B0027DC0E /* CKGameFormatter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +455,7 @@
 				195F99B5154C9F03007C87E1 /* CKPGNTokenizer.m in Sources */,
 				195F99BD154CA0B7007C87E1 /* CKPGNGameBuilder.m in Sources */,
 				195F99C6154CAEA3007C87E1 /* CKSANHelper.m in Sources */,
+				1968B1AE1552365B0027DC0E /* CKGameFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
