@@ -29,6 +29,7 @@
 @synthesize commentEndString = _commentEndString;
 @synthesize commentStartString = _commentStartString;
 @synthesize textSize = _textSize;
+@synthesize moveCallback = _moveCallback;
 
 - (id)initWithGame:(CKGame *)game
 {
@@ -118,17 +119,27 @@
         else
             attributes = [self deeplyNestedAttributes];
         
+        NSMutableString *moveString = [[NSMutableString alloc] init];
+        
         if (needsMoveNumberPrepended)
         {
-            [string appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d.", child.position.moveNumber] attributes:attributes]];
+            [moveString appendFormat:@"%d.", child.position.moveNumber];
             if (child.position.sideToMove == CCWhite)
-                [string appendAttributedString:[[NSAttributedString alloc] initWithString:@".." attributes:attributes]];
+                [moveString appendString:@".."];
             
             // Reset the context so that move numbers won't be appended
             needsMoveNumberPrepended = NO;
         }
         
-        [string appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ ", child.moveString] attributes:attributes]];
+        [moveString appendFormat:@"%@ ", child.moveString];
+        
+        NSMutableAttributedString *move = [[NSMutableAttributedString alloc] initWithString:moveString attributes:attributes];
+        
+        // Allow for insertion of arbitrary values into the attributed string
+        if (self.moveCallback)
+            self.moveCallback(child, move);
+        
+        [string appendAttributedString:move];
         
         if (child.comment)
         {

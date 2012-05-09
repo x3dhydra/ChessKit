@@ -10,6 +10,10 @@
 #import <UIKit/UIKit.h>
 #import "CCPiece.h"
 
+@class CKGameTree;
+
+typedef void (^CKGameFormatterMoveCallback)(CKGameTree *, NSMutableAttributedString *);
+
 @class CKGame;
 
 @interface CKGameFormatter : NSObject
@@ -19,9 +23,11 @@
 @property (nonatomic, strong) NSString *commentStartString;   // Default '{'
 @property (nonatomic, strong) NSString *commentEndString;     // Default '}'
 @property (nonatomic, assign) CGFloat textSize;
+@property (nonatomic, copy) CKGameFormatterMoveCallback moveCallback;
 
 - (id)initWithGame:(CKGame *)game;
 - (NSString *)gameString;
+
 - (NSAttributedString *)attributedGameTree;
 
 - (NSString *)stringForPiece:(CCPiece)piece;
