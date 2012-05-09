@@ -609,7 +609,7 @@
 
 - (NSUInteger)moveNumber
 {
-    return (self.ply / 2) + 1;
+    return (self.ply - 1) / 2 + 1;
 }
 
 #pragma mark - NSObject

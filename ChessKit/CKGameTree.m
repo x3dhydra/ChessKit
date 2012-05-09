@@ -191,5 +191,82 @@
     return string;
 }
 
+#pragma mark - Enumeration
+
+- (void)enumerateChildrenUsingBlock:(void (^)(CKGameTree *child, CKGameTreeEnumerationInfo info, BOOL *stop))block;
+{
+    [self enumerateChildrenUsingBlock:block options:CKEnumerationAllLines];
+}
+
+- (void)enumerateChildrenUsingBlock:(void (^)(CKGameTree *, CKGameTreeEnumerationInfo, BOOL *))block options:(CKEnumerationOptions)options
+{
+    if (options == CKEnumerationAllLines)
+    {
+        BOOL stop = NO;
+        CKGameTreeEnumerationInfo info;
+        info.depth = 0;
+        info.status = CKGameTreeEnumerationStatusStartOfLine;
+        info.index = NSNotFound;
+        [self enumerateLinesUsingBlock:block context:info stop:&stop];
+    }
+    else if (options == CKEnumerationMainLine)
+    {
+        BOOL stop = NO;
+        CKGameTreeEnumerationInfo info;
+        info.depth = 0;
+        info.status = CKGameTreeEnumerationStatusStartOfLine;
+        info.index = 0;
+    }
+}
+
+// Return NO to indicate that the recursive enumeration should stop
+- (void)enumerateLinesUsingBlock:(void (^)(CKGameTree *child, CKGameTreeEnumerationInfo info, BOOL *stop))block context:(CKGameTreeEnumerationInfo)context stop:(BOOL *)stop
+{
+    // Bail early if there is no block, if stop has explicity been set to YES, or there are no children
+    if (!block || *stop || self.children.count == 0)
+        return;
+    
+    CKGameTree *child = [self nextTree];
+    
+    __block CKGameTreeEnumerationInfo info;
+    info.depth = context.depth;
+    info.index = 0;
+    info.status = 0;
+    if (child.children.count == 0)
+        info.status = CKGameTreeEnumerationStatusEndOfLine;
+        
+    block(child, info, stop);
+    if (*stop)
+        return;
+    
+    if (self.children.count > 1)
+    {
+        NSIndexSet *indexes = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, self.children.count - 1)];
+        [self.children enumerateObjectsAtIndexes:indexes options:0 usingBlock:^(id obj, NSUInteger idx, BOOL *stopEnumeration) {
+            
+            // We're going deeper into the variation tree, so add one to the depth
+            info.depth = context.depth + 1;
+            info.index = idx;
+            info.status = CKGameTreeEnumerationStatusStartOfLine;
+            if ([[obj children] count] == 0)
+                info.status |= CKGameTreeEnumerationStatusEndOfLine;
+            
+            block(obj, info, stop);
+            
+            if (!*stop)
+                [obj enumerateLinesUsingBlock:block context:info stop:stop];
+            
+            *stopEnumeration = *stop;
+            
+            info.depth = context.depth;
+        }];
+        
+        if (*stop)
+            return;
+    }
+    
+    [child enumerateLinesUsingBlock:block context:info stop:stop];
+}
+
 @end
 

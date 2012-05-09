@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "CCPiece.h"
 
 @class CKGame;
@@ -17,6 +18,7 @@
 @property (nonatomic, strong) NSString *variationEndString;   // Default ']'
 @property (nonatomic, strong) NSString *commentStartString;   // Default '{'
 @property (nonatomic, strong) NSString *commentEndString;     // Default '}'
+@property (nonatomic, assign) CGFloat textSize;
 
 - (id)initWithGame:(CKGame *)game;
 - (NSString *)gameString;

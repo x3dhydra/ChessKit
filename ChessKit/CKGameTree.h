@@ -8,6 +8,28 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum
+{
+    CKGameTreeEnumerationStatusStartOfLine = 1,
+    CKGameTreeEnumerationStatusEndOfLine = 2,
+} CKGameTreeEnumerationStatus;
+
+struct CKGameTreeEnumerationInfo 
+{
+    NSUInteger depth;
+    NSUInteger index;  // Index in parent's children array.
+    CKGameTreeEnumerationStatus status;
+};
+
+enum {
+    CKEnumerationMainLine,
+    CKEnumerationAllLines,
+};
+typedef NSUInteger CKEnumerationOptions;
+
+
+typedef  struct CKGameTreeEnumerationInfo CKGameTreeEnumerationInfo;
+
 @class CKMove, CKPosition;
 
 /**
@@ -50,5 +72,8 @@
 
 - (NSEnumerator *)mainLineEnumerator;
 - (BOOL)hasVariations;
+
+- (void)enumerateChildrenUsingBlock:(void (^)(CKGameTree *child, CKGameTreeEnumerationInfo info, BOOL *stop))block;
+- (void)enumerateChildrenUsingBlock:(void (^)(CKGameTree *child, CKGameTreeEnumerationInfo info, BOOL *stop))block options:(CKEnumerationOptions)options;
 
 @end

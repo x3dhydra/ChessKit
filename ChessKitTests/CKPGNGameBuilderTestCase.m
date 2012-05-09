@@ -10,6 +10,7 @@
 #import "CKPGNGameBuilder.h"
 #import "ChessKit.h"
 #import "CKFENHelper.h"
+#import "CKGameFormatter.h"
 
 @implementation CKPGNGameBuilderTestCase
 
@@ -40,10 +41,24 @@
     
     STAssertTrue([position isEqualToPosition:startPosition options:CKAbsolutePositionComparison], @"%@\nEnd Position:\n%@", position, startPosition);
 
-    for (CKGameTree *tree in game.gameTree.mainLineEnumerator)
-    {
-        NSLog(@"%@", tree);
-    }
+    CKGameFormatter *formatter = [[CKGameFormatter alloc] initWithGame:game];
+    NSString *gameString = [formatter gameString];
+    
+    NSLog(@"%@", gameString);
+}
+
+- (void)testGameFormatter
+{
+    NSURL *url = [[NSBundle bundleForClass:[self class]] URLForResource:@"Variations" withExtension:@"pgn"];
+    NSString *gameText = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:NULL];
+    CKPGNGameBuilder *builder = [[CKPGNGameBuilder alloc] initWithString:gameText options:CKPGNFullFormat];
+    
+    CKGame *game = [builder game];
+
+    CKGameFormatter *formatter = [[CKGameFormatter alloc] initWithGame:game];
+    NSAttributedString *string = [formatter attributedGameTree];
+    
+    NSLog(@"%@", string);
 }
 
 @end

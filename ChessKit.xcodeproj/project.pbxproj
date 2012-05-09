@@ -41,6 +41,10 @@
 		195F99D5154CD5D7007C87E1 /* Variations.pgn in Resources */ = {isa = PBXBuildFile; fileRef = 195F99D4154CD5D7007C87E1 /* Variations.pgn */; };
 		1968B1AD1552365B0027DC0E /* CKGameFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1968B1AB1552365B0027DC0E /* CKGameFormatter.h */; };
 		1968B1AE1552365B0027DC0E /* CKGameFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1968B1AC1552365B0027DC0E /* CKGameFormatter.m */; };
+		199996EF1558A7CE00F437EC /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199996EE1558A7CE00F437EC /* CoreText.framework */; };
+		199996F21558A86200F437EC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199996F11558A86200F437EC /* UIKit.framework */; };
+		199996F31558ACFB00F437EC /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199996EE1558A7CE00F437EC /* CoreText.framework */; };
+		199996F41558AE2800F437EC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199996F11558A86200F437EC /* UIKit.framework */; };
 		199A5125154641B6008FC3E7 /* CKFENHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 199A5123154641B6008FC3E7 /* CKFENHelper.h */; };
 		199A5126154641B6008FC3E7 /* CKFENHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 199A5124154641B6008FC3E7 /* CKFENHelper.m */; settings = {COMPILER_FLAGS = ""; }; };
 		199A5168154C5918008FC3E7 /* FENTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 199A5167154C5918008FC3E7 /* FENTestCase.m */; };
@@ -63,6 +67,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		191291151559EFCB006F02B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 191291101559EFCB006F02B2 /* CoreChess.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 19F27743146DAA7200B58AB1;
+			remoteInfo = CoreChess;
+		};
+		191291171559EFCB006F02B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 191291101559EFCB006F02B2 /* CoreChess.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 19F27753146DAA7200B58AB1;
+			remoteInfo = CoreChessTests;
+		};
 		19F2778E146DAAE700B58AB1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 19F2776F146DAAE700B58AB1 /* Project object */;
@@ -73,6 +91,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		191291101559EFCB006F02B2 /* CoreChess.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CoreChess.xcodeproj; path = ../CoreChess/CoreChess.xcodeproj; sourceTree = "<group>"; };
 		191FC2121494415600FB4F8E /* libCoreChess.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCoreChess.a; path = "../CoreChess/build/Release-iphoneos/libCoreChess.a"; sourceTree = "<group>"; };
 		191FC2151494417D00FB4F8E /* CKPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKPosition.h; sourceTree = "<group>"; };
 		191FC2161494417D00FB4F8E /* CKPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKPosition.m; sourceTree = "<group>"; };
@@ -108,6 +127,8 @@
 		195F99D4154CD5D7007C87E1 /* Variations.pgn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Variations.pgn; path = Resources/Variations.pgn; sourceTree = "<group>"; };
 		1968B1AB1552365B0027DC0E /* CKGameFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKGameFormatter.h; sourceTree = "<group>"; };
 		1968B1AC1552365B0027DC0E /* CKGameFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKGameFormatter.m; sourceTree = "<group>"; };
+		199996EE1558A7CE00F437EC /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		199996F11558A86200F437EC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		199A5123154641B6008FC3E7 /* CKFENHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKFENHelper.h; sourceTree = "<group>"; };
 		199A5124154641B6008FC3E7 /* CKFENHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKFENHelper.m; sourceTree = "<group>"; };
 		199A5166154C5918008FC3E7 /* FENTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FENTestCase.h; sourceTree = "<group>"; };
@@ -117,7 +138,7 @@
 		19F27778146DAAE700B58AB1 /* libChessKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libChessKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F2777B146DAAE700B58AB1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		19F2777F146DAAE700B58AB1 /* ChessKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChessKit-Prefix.pch"; sourceTree = "<group>"; };
-		19F27780146DAAE700B58AB1 /* ChessKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChessKit.h; sourceTree = "<group>"; };
+		19F27780146DAAE700B58AB1 /* ChessKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ChessKit.h; path = ChessKit/ChessKit.h; sourceTree = SOURCE_ROOT; };
 		19F27788146DAAE700B58AB1 /* ChessKitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChessKitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F27789146DAAE700B58AB1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		19F2778B146DAAE700B58AB1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -140,6 +161,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				199996F21558A86200F437EC /* UIKit.framework in Frameworks */,
+				199996EF1558A7CE00F437EC /* CoreText.framework in Frameworks */,
 				191FC2131494415600FB4F8E /* libCoreChess.a in Frameworks */,
 				19F2777C146DAAE700B58AB1 /* Foundation.framework in Frameworks */,
 			);
@@ -149,6 +172,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				199996F41558AE2800F437EC /* UIKit.framework in Frameworks */,
+				199996F31558ACFB00F437EC /* CoreText.framework in Frameworks */,
 				19F2778A146DAAE700B58AB1 /* SenTestingKit.framework in Frameworks */,
 				19F2778C146DAAE700B58AB1 /* UIKit.framework in Frameworks */,
 				19F2778D146DAAE700B58AB1 /* Foundation.framework in Frameworks */,
@@ -159,6 +184,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		191291111559EFCB006F02B2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				191291161559EFCB006F02B2 /* libCoreChess.a */,
+				191291181559EFCB006F02B2 /* CoreChessTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		191FC21D149460A300FB4F8E /* CoreChess */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				191FC2121494415600FB4F8E /* libCoreChess.a */,
+				191291101559EFCB006F02B2 /* CoreChess.xcodeproj */,
 				19F2777D146DAAE700B58AB1 /* ChessKit */,
 				19F27791146DAAE700B58AB1 /* ChessKitTests */,
 				19F2777A146DAAE700B58AB1 /* Frameworks */,
@@ -211,6 +246,8 @@
 		19F2777A146DAAE700B58AB1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				199996F11558A86200F437EC /* UIKit.framework */,
+				199996EE1558A7CE00F437EC /* CoreText.framework */,
 				19F2777B146DAAE700B58AB1 /* Foundation.framework */,
 				19F27789146DAAE700B58AB1 /* SenTestingKit.framework */,
 				19F2778B146DAAE700B58AB1 /* UIKit.framework */,
@@ -398,6 +435,12 @@
 			mainGroup = 19F2776D146DAAE700B58AB1;
 			productRefGroup = 19F27779146DAAE700B58AB1 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 191291111559EFCB006F02B2 /* Products */;
+					ProjectRef = 191291101559EFCB006F02B2 /* CoreChess.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				19F27777146DAAE700B58AB1 /* ChessKit */,
@@ -405,6 +448,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		191291161559EFCB006F02B2 /* libCoreChess.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCoreChess.a;
+			remoteRef = 191291151559EFCB006F02B2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		191291181559EFCB006F02B2 /* CoreChessTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CoreChessTests.octest;
+			remoteRef = 191291171559EFCB006F02B2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		19F27785146DAAE700B58AB1 /* Resources */ = {
