@@ -25,6 +25,7 @@ static inline BOOL CKTokenIsTagPair(CCTokenType token)
     CKGame *_game;
     NSDictionary *_metadata;
     NSInteger _variationDepth;
+    NSCharacterSet *legalSymbolStartCharacters;
 }
 @property (nonatomic, strong) NSMutableArray *variationStack;
 @end
@@ -51,6 +52,7 @@ static inline BOOL CKTokenIsTagPair(CCTokenType token)
     {
         _options = options;
         _gameText = gameText;
+        legalSymbolStartCharacters = [NSCharacterSet characterSetWithCharactersInString:@"0123456789abcdefghKQRBN*O"];
     }
     return self;
 }
@@ -134,7 +136,11 @@ static inline BOOL CKTokenIsTagPair(CCTokenType token)
                     break;
                 
                 // Ignore move numbers, which are also processed as symbols
-                if (isnumber([token characterAtIndex:0]))
+                if (isnumber([token characterAtIndex:0]) && [token characterAtIndex:0] != '0')
+                    break;
+                
+                // Ignore illegal characters
+                if (![legalSymbolStartCharacters characterIsMember:[token characterAtIndex:0]])
                     break;
                 
                 //NSLog(@"%@\n%@", token, _game.gameTree.position);

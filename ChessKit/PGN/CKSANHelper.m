@@ -50,14 +50,14 @@ static NSCharacterSet *trimCharacters;
     }
     
     // Castling is easy since it's an absolute string (at least in the context of a standard chess game)
-    if ([string isEqualToString:@"O-O"])
+    if ([string isEqualToString:@"O-O"] || [string isEqualToString:@"0-0"])
     {
         if (position.sideToMove == CCWhite)
             move = [CKMove moveWithFrom:e1 to:g1];
         else
             move = [CKMove moveWithFrom:e8 to:g8];
     }
-    else if ([string isEqualToString:@"O-O-O"])
+    else if ([string isEqualToString:@"O-O-O"] || [string isEqualToString:@"0-0-0"])
     {
         if (position.sideToMove == CCWhite)
             move = [CKMove moveWithFrom:e1 to:c1];

@@ -56,6 +56,8 @@
     {
         [scanner scanUpToString:@"\"" intoString:&token];
         token = [token stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        if (!token)
+            token = @"";
         lastToken = CCTokenTagSymbol;
         
         // The next character to be scanned is a " so set the scan location
@@ -67,6 +69,8 @@
     else if (lastToken == CCTokenTagSymbol)
     {
         [scanner scanUpToString:@"\"" intoString:&token];
+        if (!token)
+            token = @"";
         lastToken = CCTokenString;
         
         // The next character to be scanned is a " so set the scan location

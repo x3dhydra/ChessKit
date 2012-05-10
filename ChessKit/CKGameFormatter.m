@@ -143,7 +143,7 @@
         
         if (child.comment)
         {
-            [string appendAttributedString:[[NSAttributedString alloc] initWithString:child.comment attributes:[self commentAttributes]]];
+            [string appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ ", child.comment] attributes:[self commentAttributes]]];
             needsMoveNumberPrepended = YES;
         }
         
