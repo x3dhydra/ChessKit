@@ -17,13 +17,15 @@
     NSCharacterSet *tokenEndCharacters;
     NSCharacterSet *selfTerminatingCharacters;
     NSCharacterSet *whiteSpace;
+    NSRange lastTokenRange;
 }
 
 - (id)initWithString:(NSString *)gameText;
-- (void)scan;
 - (NSString *)nextToken;
 - (NSString *)getNextToken:(CCTokenType *)tokenType;
 - (char)peek;
 - (void)setupCharacterSets;
+
+- (NSUInteger)scanLocation;
 
 @end

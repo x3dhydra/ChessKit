@@ -1,0 +1,24 @@
+[Event "World Chess Championship Match 2012"]
+[Site "Moscow"]
+[Date "2012.05.11"]
+[Round "1"]
+[White "Anand, Viswanathan"]
+[Black "Gelfand, Boris"]
+[Result "1/2-1/2"]
+[ECO "D85"]
+[WhiteElo "2791"]
+[BlackElo "2727"]
+[PlyCount "48"]
+[EventCountry "RUS"]
+
+1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. Nf3 Bg7 5. cxd5 Nxd5 6. e4 Nxc3 7. bxc3 c5 8.
+Bb5+ Nc6 9. d5 {[%eval -13,0]} Qa5 {[%eval 55,0]} 10. Rb1 {[%eval 0,0]} a6 {
+[%eval 8,0]} 11. Bxc6+ {[%eval 8,0]} bxc6 {[%eval 0,0]} 12. O-O {[%eval 8,0]}
+Qxa2 {[%eval 16,0]} 13. Rb2 {[%eval 11,0]} Qa5 {[%eval 4,0]} 14. d6 {[%eval 11,
+0]} Ra7 {[%eval 19,0]} 15. Bg5 {[%eval -18,0]} exd6 {[%eval -13,0]} 16. Qxd6 {
+[%eval -11,0]} Rd7 {[%eval -3,0]} 17. Qxc6 {[%eval -6,0]} Qc7 {[%eval -10,0]}
+18. Qxc7 {[%eval -14,0]} Rxc7 {[%eval -2,0]} 19. Bf4 {[%eval -4,0]} Rb7 {
+[%eval 0,0]} 20. Rc2 {[%eval -25,0]} O-O {[%eval -26,0]} 21. Bd6 {[%eval -25,0]
+} Re8 {[%eval -25,0]} 22. Nd2 {[%eval -39,0]} f5 {[%eval -15,0]} 23. f3 {
+[%eval -39,0]} fxe4 24. Nxe4 Bf5 1/2-1/2
+

@@ -192,7 +192,7 @@ static NSCharacterSet *trimCharacters;
     
     if (CCBitboardPopulationCount(bitboard) != 1)
     {
-        NSLog(@"Invalid disambiguation: \n%@", NSStringFromCCBitboard(bitboard));
+        //NSLog(@"Invalid disambiguation: \n%@", NSStringFromCCBitboard(bitboard));
         return InvalidSquare;
     }
     

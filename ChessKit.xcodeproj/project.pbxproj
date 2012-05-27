@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		191D78A01567FEAF0052DCDF /* moscowWC2012.pgn in Resources */ = {isa = PBXBuildFile; fileRef = 191D789F1567FEAF0052DCDF /* moscowWC2012.pgn */; };
+		191D78A61567FF4A0052DCDF /* CKPGNDatabaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 191D78A51567FF4A0052DCDF /* CKPGNDatabaseTestCase.m */; };
 		191FC2131494415600FB4F8E /* libCoreChess.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 191FC2121494415600FB4F8E /* libCoreChess.a */; };
 		191FC2171494417D00FB4F8E /* CKPosition.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC2151494417D00FB4F8E /* CKPosition.h */; };
 		191FC2181494417D00FB4F8E /* CKPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 191FC2161494417D00FB4F8E /* CKPosition.m */; settings = {COMPILER_FLAGS = ""; }; };
@@ -51,7 +53,6 @@
 		199A516C154C673D008FC3E7 /* PositionTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 199A516B154C673D008FC3E7 /* PositionTestCase.m */; };
 		19F2777C146DAAE700B58AB1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F2777B146DAAE700B58AB1 /* Foundation.framework */; };
 		19F2778A146DAAE700B58AB1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F27789146DAAE700B58AB1 /* SenTestingKit.framework */; };
-		19F2778C146DAAE700B58AB1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F2778B146DAAE700B58AB1 /* UIKit.framework */; };
 		19F2778D146DAAE700B58AB1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F2777B146DAAE700B58AB1 /* Foundation.framework */; };
 		19F27790146DAAE700B58AB1 /* libChessKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F27778146DAAE700B58AB1 /* libChessKit.a */; };
 		19F27796146DAAE700B58AB1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 19F27794146DAAE700B58AB1 /* InfoPlist.strings */; };
@@ -92,6 +93,9 @@
 
 /* Begin PBXFileReference section */
 		191291101559EFCB006F02B2 /* CoreChess.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CoreChess.xcodeproj; path = ../CoreChess/CoreChess.xcodeproj; sourceTree = "<group>"; };
+		191D789F1567FEAF0052DCDF /* moscowWC2012.pgn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = moscowWC2012.pgn; path = Resources/moscowWC2012.pgn; sourceTree = "<group>"; };
+		191D78A41567FF4A0052DCDF /* CKPGNDatabaseTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKPGNDatabaseTestCase.h; sourceTree = "<group>"; };
+		191D78A51567FF4A0052DCDF /* CKPGNDatabaseTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKPGNDatabaseTestCase.m; sourceTree = "<group>"; };
 		191FC2121494415600FB4F8E /* libCoreChess.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCoreChess.a; path = "../CoreChess/build/Release-iphoneos/libCoreChess.a"; sourceTree = "<group>"; };
 		191FC2151494417D00FB4F8E /* CKPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKPosition.h; sourceTree = "<group>"; };
 		191FC2161494417D00FB4F8E /* CKPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKPosition.m; sourceTree = "<group>"; };
@@ -141,7 +145,6 @@
 		19F27780146DAAE700B58AB1 /* ChessKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ChessKit.h; path = ChessKit/ChessKit.h; sourceTree = SOURCE_ROOT; };
 		19F27788146DAAE700B58AB1 /* ChessKitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChessKitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F27789146DAAE700B58AB1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		19F2778B146DAAE700B58AB1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		19F27793146DAAE700B58AB1 /* ChessKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChessKitTests-Info.plist"; sourceTree = "<group>"; };
 		19F27795146DAAE700B58AB1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		19F27797146DAAE700B58AB1 /* ChessKitTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChessKitTests.h; sourceTree = "<group>"; };
@@ -175,7 +178,6 @@
 				199996F41558AE2800F437EC /* UIKit.framework in Frameworks */,
 				199996F31558ACFB00F437EC /* CoreText.framework in Frameworks */,
 				19F2778A146DAAE700B58AB1 /* SenTestingKit.framework in Frameworks */,
-				19F2778C146DAAE700B58AB1 /* UIKit.framework in Frameworks */,
 				19F2778D146DAAE700B58AB1 /* Foundation.framework in Frameworks */,
 				19F27790146DAAE700B58AB1 /* libChessKit.a in Frameworks */,
 			);
@@ -250,7 +252,6 @@
 				199996EE1558A7CE00F437EC /* CoreText.framework */,
 				19F2777B146DAAE700B58AB1 /* Foundation.framework */,
 				19F27789146DAAE700B58AB1 /* SenTestingKit.framework */,
-				19F2778B146DAAE700B58AB1 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -296,6 +297,8 @@
 				19FF47841544AA8700A7C545 /* New Group */,
 				19F27797146DAAE700B58AB1 /* ChessKitTests.h */,
 				19F27798146DAAE700B58AB1 /* ChessKitTests.m */,
+				191D78A41567FF4A0052DCDF /* CKPGNDatabaseTestCase.h */,
+				191D78A51567FF4A0052DCDF /* CKPGNDatabaseTestCase.m */,
 				19F27792146DAAE700B58AB1 /* Supporting Files */,
 				199A5166154C5918008FC3E7 /* FENTestCase.h */,
 				199A5167154C5918008FC3E7 /* FENTestCase.m */,
@@ -335,6 +338,7 @@
 		19FF47841544AA8700A7C545 /* New Group */ = {
 			isa = PBXGroup;
 			children = (
+				191D789F1567FEAF0052DCDF /* moscowWC2012.pgn */,
 				19FF47851544AAA200A7C545 /* twic910.pgn */,
 				19FF471A1544A0AD00A7C545 /* 2500.pgn */,
 				195F99C1154CA688007C87E1 /* Sample.pgn */,
@@ -476,6 +480,7 @@
 				19FF47861544AAA200A7C545 /* twic910.pgn in Resources */,
 				195F99C2154CA688007C87E1 /* Sample.pgn in Resources */,
 				195F99D5154CD5D7007C87E1 /* Variations.pgn in Resources */,
+				191D78A01567FEAF0052DCDF /* moscowWC2012.pgn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +532,7 @@
 				199A5168154C5918008FC3E7 /* FENTestCase.m in Sources */,
 				199A516C154C673D008FC3E7 /* PositionTestCase.m in Sources */,
 				195F99C0154CA5B2007C87E1 /* CKPGNGameBuilderTestCase.m in Sources */,
+				191D78A61567FF4A0052DCDF /* CKPGNDatabaseTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

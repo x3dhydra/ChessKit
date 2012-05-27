@@ -187,7 +187,7 @@
     
     if (![self isMovePseudoLegal:move])
     {
-        NSLog(@"Non-pseudolegal move");
+        //NSLog(@"Non-pseudolegal move");
         return;
     }
     

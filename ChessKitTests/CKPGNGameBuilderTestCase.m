@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Austen Green Consulting. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "CKPGNGameBuilderTestCase.h"
 #import "CKPGNGameBuilder.h"
 #import "ChessKit.h"
@@ -59,6 +60,15 @@
     NSAttributedString *string = [formatter attributedGameTree];
     
     NSLog(@"%@", string);
+}
+
+- (void)testRandom
+{
+    NSURL *url = [[NSBundle bundleForClass:[self class]] URLForResource:@"moscowWC2012" withExtension:@"pgn"];
+    NSString *gameText = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:NULL];
+    CKPGNGameBuilder *builder = [[CKPGNGameBuilder alloc] initWithString:gameText options:CKPGNFullFormat];
+    
+    STAssertNoThrow([builder game], nil);
 }
 
 @end

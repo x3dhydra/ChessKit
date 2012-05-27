@@ -28,20 +28,10 @@
 }
 
 
-- (void)scan
-{
-    NSString *token = nil;
-    lastToken = CCTokenSymbol;
-    do {
-        token = [self nextToken];
-        NSLog(@"%@", token);
-    } while (token);
-}
-
 - (NSString *)getNextToken:(CCTokenType *)tokenType
 {
     NSString *token = [self nextToken];
-    *tokenType = lastToken;
+    *tokenType = lastToken;    
     return token;
 }
 
@@ -50,7 +40,7 @@
     NSString *token = nil;
     
     // Check to see if the last token scanned indicates that special scanning behavior should 
-    // be used to grab the next token.  This occurs when starting a tag-pair value '[' or
+    // be used fo grab the next token.  This occurs when starting a tag-pair value '[' or
     // when using an embedded comment '{'.
     if (lastToken == CCTokenBeginTag)
     {
@@ -125,7 +115,7 @@
                     lastToken = CCTokenPeriod;
                     break;
                 case '*':
-                    lastToken = CCTokenSymbol;
+                    lastToken = CCTokenGameTermination;
                     break;
                 case '\0':
                     token = nil;
@@ -145,6 +135,19 @@
         {
             [scanner scanUpToCharactersFromSet:tokenEndCharacters intoString:&token];
             lastToken = CCTokenSymbol;
+            
+            switch ([token characterAtIndex:0]) {
+                case '0':
+                    if ([token isEqualToString:@"0-1"])
+                        lastToken = CCTokenGameTermination;
+                    break;
+                case '1':
+                    if ([token isEqualToString:@"1-0"] || [token isEqualToString:@"1/2-1/2"])
+                        lastToken = CCTokenGameTermination;
+                    break;
+                default:
+                    break;
+            }
         }
     }
     
@@ -176,6 +179,11 @@
     
     whiteSpace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
     
+}
+
+- (NSUInteger)scanLocation
+{
+    return scanner.scanLocation;
 }
 
 @end

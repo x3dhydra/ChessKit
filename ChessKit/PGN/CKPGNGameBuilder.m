@@ -127,8 +127,6 @@ static inline BOOL CKTokenIsTagPair(CCTokenType token)
     
     do 
     {
-        //NSLog(@"Token: %@ - %d", token, tokenType);
-        
         switch (tokenType) {
             case CCTokenSymbol:
             {
@@ -142,8 +140,6 @@ static inline BOOL CKTokenIsTagPair(CCTokenType token)
                 // Ignore illegal characters
                 if (![legalSymbolStartCharacters characterIsMember:[token characterAtIndex:0]])
                     break;
-                
-                //NSLog(@"%@\n%@", token, _game.gameTree.position);
                 
                 CKMove *move = [CKSANHelper moveFromString:token withPosition:position];
                 [tree addMove:move withValidation:NO];
@@ -187,8 +183,6 @@ static inline BOOL CKTokenIsTagPair(CCTokenType token)
         }
         token = [tokenizer getNextToken:&tokenType];
     } while (token && tokenType != CCTokenGameTermination);
-    
-    //NSLog(@"%@ %@", _game.gameTree,  _game.gameTree.position);
 }
 
 - (NSMutableArray *)variationStack
