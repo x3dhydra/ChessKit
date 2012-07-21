@@ -34,6 +34,7 @@
 
 @end
 
+// Game metadata attribute.  Used by CKFetchRequest for potentially optimized searches
 extern NSString *const CKGameEventKey;
 extern NSString *const CKGameSiteKey;
 extern NSString *const CKGameDateKey;

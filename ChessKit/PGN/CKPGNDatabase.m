@@ -21,6 +21,7 @@ static NSString * const CKPGNGameRangesKey = @"kPGNGameRangesKey";
     NSData *_gameData;
     NSCache *_metadataCache;
     NSFileHandle *_fileHandle;
+    dispatch_queue_t _syncQueue;
 }
 @end
 
@@ -50,9 +51,15 @@ static NSString * const CKPGNGameRangesKey = @"kPGNGameRangesKey";
                 
         _gameRanges = [[NSMutableArray alloc] init];
         _metadataCache = [[NSCache alloc] init];
+        _syncQueue = dispatch_queue_create("com.ChessKit.CKPGNDatabase.syncQueue", DISPATCH_QUEUE_SERIAL);
         [self loadDatabase];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    dispatch_release(_syncQueue);
 }
 
 - (NSUInteger)count
@@ -64,23 +71,25 @@ static NSString * const CKPGNGameRangesKey = @"kPGNGameRangesKey";
 {
     NSString *gameText = [self gameStringAtIndex:index];
     CKPGNGameBuilder *builder = [[CKPGNGameBuilder alloc] initWithString:gameText];
-    NSLog(@"%@", gameText);
     return builder.game;
 }
 
 - (NSDictionary *)metadataAtIndex:(NSUInteger)index
 {
+    __block NSDictionary *metadata;
     id key = [NSNumber numberWithUnsignedInteger:index];
     
-    NSDictionary *metadata = [_metadataCache objectForKey:key];
-    if (!metadata)
-    {
-        CKPGNGameBuilder *builder = [[CKPGNGameBuilder alloc] initWithString:[self gameStringAtIndex:index] options:CKPGNMetadataOnly];
-        metadata = builder.metadata;
-        if (metadata)
-            [_metadataCache setObject:metadata forKey:key];
-    }
-    
+    dispatch_sync(_syncQueue, ^{
+        metadata = [_metadataCache objectForKey:key];
+        if (!metadata)
+        {
+            CKPGNGameBuilder *builder = [[CKPGNGameBuilder alloc] initWithString:[self gameStringAtIndex:index] options:CKPGNMetadataOnly];
+            metadata = builder.metadata;
+            if (metadata)
+                [_metadataCache setObject:metadata forKey:key];
+        }
+    });
+
     return metadata;
 }
 

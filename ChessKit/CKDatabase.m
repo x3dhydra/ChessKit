@@ -8,6 +8,14 @@
 
 #import "CKDatabase.h"
 #import "CKPGNDatabase.h"
+#import "CKFetchOperation.h"
+#import "CKFetchRequest.h"
+
+@interface CKDatabase()
+{
+    NSOperationQueue *_searchQueue;
+}
+@end
 
 @implementation CKDatabase
 @synthesize url = _url;
@@ -68,6 +76,8 @@
     return nil;
 }
 
+#pragma mark - Search
+
 - (NSIndexSet *)filteredGamesUsingPredicate:(NSPredicate *)predicate
 {
     NSMutableArray *array = [[NSMutableArray alloc] init];
@@ -80,6 +90,41 @@
     }
     
     return array;
+}
+
+- (id)executeFetchRequest:(CKFetchRequest *)fetchRequst completion:(void (^)(NSArray *matchingIndexes, CKDatabase *database))completion
+{
+    CKFetchOperation *operation = [[CKFetchOperation alloc] initWithFetchRequest:fetchRequst database:self];
+    completion = [completion copy];
+    
+    __weak CKFetchOperation *weakOperation = operation;
+    [operation setCompletionBlock:^{
+        if (!weakOperation.isCancelled)
+        {
+            completion([weakOperation matchingIndexes], self);
+        }
+    }];
+    
+    dispatch_async(dispatch_get_current_queue(), ^{
+        [[self searchQueue] addOperation:operation];
+    });
+    
+    return operation;
+}
+
+- (void)cancelSearch:(id)context
+{
+    CKFetchOperation *operation = (CKFetchOperation *)context;
+    [operation cancel];
+}
+
+- (NSOperationQueue *)searchQueue
+{
+    if (!_searchQueue)
+    {
+        _searchQueue = [[NSOperationQueue alloc] init];
+    }
+    return _searchQueue;
 }
 
 @end

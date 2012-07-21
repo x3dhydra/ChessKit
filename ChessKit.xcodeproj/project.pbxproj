@@ -34,6 +34,10 @@
 		1929C29E150BE4D6002A7A49 /* CKDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1929C29C150BE4D6002A7A49 /* CKDatabase.m */; settings = {COMPILER_FLAGS = ""; }; };
 		1929C2A2150BE560002A7A49 /* CKGame.h in Headers */ = {isa = PBXBuildFile; fileRef = 1929C2A0150BE560002A7A49 /* CKGame.h */; };
 		1929C2A3150BE560002A7A49 /* CKGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1929C2A1150BE560002A7A49 /* CKGame.m */; settings = {COMPILER_FLAGS = ""; }; };
+		194353A515BB473600C21C55 /* CKFetchRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 194353A315BB473600C21C55 /* CKFetchRequest.h */; };
+		194353A615BB473600C21C55 /* CKFetchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 194353A415BB473600C21C55 /* CKFetchRequest.m */; };
+		194353A915BB4C2400C21C55 /* CKFetchOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 194353A715BB4C2400C21C55 /* CKFetchOperation.h */; };
+		194353AA15BB4C2400C21C55 /* CKFetchOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 194353A815BB4C2400C21C55 /* CKFetchOperation.m */; };
 		195F99B4154C9F03007C87E1 /* CKPGNTokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 195F99B1154C9F03007C87E1 /* CKPGNTokenizer.h */; };
 		195F99B5154C9F03007C87E1 /* CKPGNTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 195F99B2154C9F03007C87E1 /* CKPGNTokenizer.m */; };
 		195F99B6154C9F03007C87E1 /* Tokens.h in Headers */ = {isa = PBXBuildFile; fileRef = 195F99B3154C9F03007C87E1 /* Tokens.h */; };
@@ -127,6 +131,10 @@
 		1929C29C150BE4D6002A7A49 /* CKDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKDatabase.m; sourceTree = "<group>"; };
 		1929C2A0150BE560002A7A49 /* CKGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKGame.h; sourceTree = "<group>"; };
 		1929C2A1150BE560002A7A49 /* CKGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKGame.m; sourceTree = "<group>"; };
+		194353A315BB473600C21C55 /* CKFetchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKFetchRequest.h; path = Search/CKFetchRequest.h; sourceTree = "<group>"; };
+		194353A415BB473600C21C55 /* CKFetchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKFetchRequest.m; path = Search/CKFetchRequest.m; sourceTree = "<group>"; };
+		194353A715BB4C2400C21C55 /* CKFetchOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKFetchOperation.h; path = Search/CKFetchOperation.h; sourceTree = "<group>"; };
+		194353A815BB4C2400C21C55 /* CKFetchOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKFetchOperation.m; path = Search/CKFetchOperation.m; sourceTree = "<group>"; };
 		195F99B1154C9F03007C87E1 /* CKPGNTokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKPGNTokenizer.h; path = PGN/CKPGNTokenizer.h; sourceTree = "<group>"; };
 		195F99B2154C9F03007C87E1 /* CKPGNTokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKPGNTokenizer.m; path = PGN/CKPGNTokenizer.m; sourceTree = "<group>"; };
 		195F99B3154C9F03007C87E1 /* Tokens.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tokens.h; path = PGN/Tokens.h; sourceTree = "<group>"; };
@@ -228,6 +236,17 @@
 			path = ../../CoreChess/CoreChess/CoreChess;
 			sourceTree = "<group>";
 		};
+		1943539F15BB472100C21C55 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				194353A315BB473600C21C55 /* CKFetchRequest.h */,
+				194353A415BB473600C21C55 /* CKFetchRequest.m */,
+				194353A715BB4C2400C21C55 /* CKFetchOperation.h */,
+				194353A815BB4C2400C21C55 /* CKFetchOperation.m */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
 		199A5121154641A4008FC3E7 /* FEN */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +300,7 @@
 		19F2777D146DAAE700B58AB1 /* ChessKit */ = {
 			isa = PBXGroup;
 			children = (
+				1943539F15BB472100C21C55 /* Search */,
 				19C3584615BB2394002A8CB8 /* Utilities */,
 				195F99B8154C9F1E007C87E1 /* CKGameTypes.h */,
 				199A5121154641A4008FC3E7 /* FEN */,
@@ -408,6 +428,8 @@
 				191D78C71572D8000052DCDF /* CKGameProvider.h in Headers */,
 				191D78CA1572D81A0052DCDF /* CKGameList.h in Headers */,
 				19C3584C15BB23BD002A8CB8 /* NSString+FileEncoding.h in Headers */,
+				194353A515BB473600C21C55 /* CKFetchRequest.h in Headers */,
+				194353A915BB4C2400C21C55 /* CKFetchOperation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +576,8 @@
 				1968B1AE1552365B0027DC0E /* CKGameFormatter.m in Sources */,
 				191D78CB1572D81A0052DCDF /* CKGameList.m in Sources */,
 				19C3584D15BB23BD002A8CB8 /* NSString+FileEncoding.m in Sources */,
+				194353A615BB473600C21C55 /* CKFetchRequest.m in Sources */,
+				194353AA15BB4C2400C21C55 /* CKFetchOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
