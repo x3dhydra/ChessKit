@@ -19,4 +19,9 @@
     STAssertEqualObjects(immutable, mutable, nil);
 }
 
+- (void)testBlackEnPassant
+{
+    NSURL *url = [[NSBundle bundleForClass:[self class]] URLForResource:@"TestBlackEnPassant" withExtension:@"pgn"];
+}
+
 @end

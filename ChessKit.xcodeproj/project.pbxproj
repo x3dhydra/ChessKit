@@ -55,6 +55,9 @@
 		199A5126154641B6008FC3E7 /* CKFENHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 199A5124154641B6008FC3E7 /* CKFENHelper.m */; settings = {COMPILER_FLAGS = ""; }; };
 		199A5168154C5918008FC3E7 /* FENTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 199A5167154C5918008FC3E7 /* FENTestCase.m */; };
 		199A516C154C673D008FC3E7 /* PositionTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 199A516B154C673D008FC3E7 /* PositionTestCase.m */; };
+		19C3584C15BB23BD002A8CB8 /* NSString+FileEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 19C3584A15BB23BD002A8CB8 /* NSString+FileEncoding.h */; };
+		19C3584D15BB23BD002A8CB8 /* NSString+FileEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C3584B15BB23BD002A8CB8 /* NSString+FileEncoding.m */; };
+		19C3584F15BB30CA002A8CB8 /* TestBlackEnPassant.pgn in Resources */ = {isa = PBXBuildFile; fileRef = 19C3584E15BB30CA002A8CB8 /* TestBlackEnPassant.pgn */; };
 		19F2777C146DAAE700B58AB1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F2777B146DAAE700B58AB1 /* Foundation.framework */; };
 		19F2778A146DAAE700B58AB1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F27789146DAAE700B58AB1 /* SenTestingKit.framework */; };
 		19F2778D146DAAE700B58AB1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F2777B146DAAE700B58AB1 /* Foundation.framework */; };
@@ -146,6 +149,9 @@
 		199A5167154C5918008FC3E7 /* FENTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FENTestCase.m; sourceTree = "<group>"; };
 		199A516A154C673D008FC3E7 /* PositionTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionTestCase.h; sourceTree = "<group>"; };
 		199A516B154C673D008FC3E7 /* PositionTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionTestCase.m; sourceTree = "<group>"; };
+		19C3584A15BB23BD002A8CB8 /* NSString+FileEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+FileEncoding.h"; path = "Utilities/NSString+FileEncoding.h"; sourceTree = "<group>"; };
+		19C3584B15BB23BD002A8CB8 /* NSString+FileEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+FileEncoding.m"; path = "Utilities/NSString+FileEncoding.m"; sourceTree = "<group>"; };
+		19C3584E15BB30CA002A8CB8 /* TestBlackEnPassant.pgn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TestBlackEnPassant.pgn; path = Resources/TestBlackEnPassant.pgn; sourceTree = "<group>"; };
 		19F27778146DAAE700B58AB1 /* libChessKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libChessKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F2777B146DAAE700B58AB1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		19F2777F146DAAE700B58AB1 /* ChessKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChessKit-Prefix.pch"; sourceTree = "<group>"; };
@@ -231,6 +237,15 @@
 			name = FEN;
 			sourceTree = "<group>";
 		};
+		19C3584615BB2394002A8CB8 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				19C3584A15BB23BD002A8CB8 /* NSString+FileEncoding.h */,
+				19C3584B15BB23BD002A8CB8 /* NSString+FileEncoding.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		19F2776D146DAAE700B58AB1 = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +281,7 @@
 		19F2777D146DAAE700B58AB1 /* ChessKit */ = {
 			isa = PBXGroup;
 			children = (
+				19C3584615BB2394002A8CB8 /* Utilities */,
 				195F99B8154C9F1E007C87E1 /* CKGameTypes.h */,
 				199A5121154641A4008FC3E7 /* FEN */,
 				19FF471515449B8800A7C545 /* PGN */,
@@ -353,6 +369,7 @@
 				19FF471A1544A0AD00A7C545 /* 2500.pgn */,
 				195F99C1154CA688007C87E1 /* Sample.pgn */,
 				195F99D4154CD5D7007C87E1 /* Variations.pgn */,
+				19C3584E15BB30CA002A8CB8 /* TestBlackEnPassant.pgn */,
 			);
 			name = "New Group";
 			sourceTree = "<group>";
@@ -390,6 +407,7 @@
 				1968B1AD1552365B0027DC0E /* CKGameFormatter.h in Headers */,
 				191D78C71572D8000052DCDF /* CKGameProvider.h in Headers */,
 				191D78CA1572D81A0052DCDF /* CKGameList.h in Headers */,
+				19C3584C15BB23BD002A8CB8 /* NSString+FileEncoding.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +511,7 @@
 				195F99C2154CA688007C87E1 /* Sample.pgn in Resources */,
 				195F99D5154CD5D7007C87E1 /* Variations.pgn in Resources */,
 				191D78A01567FEAF0052DCDF /* moscowWC2012.pgn in Resources */,
+				19C3584F15BB30CA002A8CB8 /* TestBlackEnPassant.pgn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +553,7 @@
 				195F99C6154CAEA3007C87E1 /* CKSANHelper.m in Sources */,
 				1968B1AE1552365B0027DC0E /* CKGameFormatter.m in Sources */,
 				191D78CB1572D81A0052DCDF /* CKGameList.m in Sources */,
+				19C3584D15BB23BD002A8CB8 /* NSString+FileEncoding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

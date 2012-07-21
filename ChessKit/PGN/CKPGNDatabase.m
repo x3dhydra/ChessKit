@@ -9,6 +9,7 @@
 #import "CKPGNDatabase.h"
 #import "CKPGNGameBuilder.h"
 #import "CKPGNTokenizer.h"
+#import "NSString+FileEncoding.h"
 
 static NSString * const CKPGNLastModifiedDateKey = @"kPGNLastModifiedDateKey";
 static NSString * const CKPGNGameRangesKey = @"kPGNGameRangesKey";
@@ -19,6 +20,7 @@ static NSString * const CKPGNGameRangesKey = @"kPGNGameRangesKey";
     NSMutableArray *_gameRanges;
     NSData *_gameData;
     NSCache *_metadataCache;
+    NSFileHandle *_fileHandle;
 }
 @end
 
@@ -28,20 +30,24 @@ static NSString * const CKPGNGameRangesKey = @"kPGNGameRangesKey";
 {
     self = [super initWithContentsOfURL:url];
     if (self)
-    {
-        _gameData = [NSData dataWithContentsOfMappedFile:[url path]];
-        _databaseString = [[NSString alloc] initWithBytesNoCopy:_gameData.bytes length:[_gameData length] encoding:NSWindowsCP1252StringEncoding freeWhenDone:NO];
+    {    
+        NSError *error = nil;
+        _fileHandle = [NSFileHandle fileHandleForReadingFromURL:url error:&error];
         
+        // Technicaly PGN is supposed to be ASCII, but we try to start with UTF8.
+        _gameData = [NSData dataWithContentsOfMappedFile:[url path]];
+         _databaseString = [[NSString alloc] initWithBytesNoCopy:_gameData.bytes length:[_gameData length] encoding:NSUTF8StringEncoding freeWhenDone:NO];
+        
+        // This is probably super-inefficient, but if we can't get the database string with UTF8, then enumerate over the available string encodings
         if (!_databaseString)
         {
-            // Technically PGN is supposed to be ASCII / UTF8 string encoding
-            NSStringEncoding encoding;
-            NSError *error = nil;
-            NSString *temp = [[NSString alloc] initWithContentsOfURL:url usedEncoding:&encoding error:&error];
-            if (!error)
+            [[NSString allStringEncodings] enumerateIndexesUsingBlock:^(NSStringEncoding encoding, BOOL *stop) {
                 _databaseString = [[NSString alloc] initWithBytesNoCopy:_gameData.bytes length:[_gameData length] encoding:encoding freeWhenDone:NO];
+                if (_databaseString)
+                    *stop = YES;
+            }];
         }
-        
+                
         _gameRanges = [[NSMutableArray alloc] init];
         _metadataCache = [[NSCache alloc] init];
         [self loadDatabase];

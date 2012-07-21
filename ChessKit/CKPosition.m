@@ -330,7 +330,7 @@
         if (self.sideToMove == CCWhite)
             position.enPassantSquare = CCSquareNorthOne(move.from);
         else
-            self.enPassantSquare = CCSquareSouthOne(move.from);
+            position.enPassantSquare = CCSquareSouthOne(move.from);
         return; // Nothing more to do, return early
     }
     

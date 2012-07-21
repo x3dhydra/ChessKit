@@ -1,0 +1,34 @@
+[Event "GEO-ch 71st"]
+[Site "Tbilisi"]
+[Date "2012.05.22"]
+[Round "9.6"]
+[White "Chighladze, Iveri"]
+[Black "Lomsadze, Davit"]
+[Result "0-1"]
+[ECO "E87"]
+[WhiteElo "2390"]
+[BlackElo "2345"]
+[Annotator "Reeh,Oliver"]
+[PlyCount "70"]
+[EventDate "2012.??.??"]
+[EventCountry "GEO"]
+[SourceDate "2009.06.14"]
+
+1. c4 g6 2. d4 Bg7 3. e4 d6 4. Nc3 Nf6 5. f3 O-O 6. Be3 e5 7. d5 Nh5 8. Qd2 f5
+9. O-O-O a6 10. Kb1 Nf6 11. Bd3 c5 12. dxc6 Nxc6 13. Bc2 Be6 14. Qxd6 Qxd6 15.
+Rxd6 Bxc4 16. b3 Bf1 17. Rd2 Rfd8 18. Rf2 Bd3 19. Bg5 Rac8 20. Bxf6 $2 {The
+attempt to clear the square d5 for the knight in order to get rid of the
+annoying black bishop d3 will backfire.} (20. Bxd3 Rxd3 21. Nge2 {kept the
+position roughly in balance.}) 20... Bxf6 21. Nd5 {If now the bishop d3 had to
+take on c2, White would be fine. But here Black can sacrifice to execute a
+knight sortie himself which will gain him material in the end. So the correct
+answer is C).} Rxd5 $1 {Clearing the square b4.} 22. exd5 Nb4 $1 {The triple
+attack on the bishop c2 forces the white answer.} 23. Bxd3 {and now the point:}
+Rc1+ $1 {Drags the king into a fork whereupon the black knight captures a lot
+of booty, devouring in turn the bishop and both rooks.} 24. Kxc1 Nxd3+ 25. Kd2
+Nxf2 {Smoothered mate of the rook h1!} 26. Ke2 Nxh1 27. Kf1 Bd8 ({Also
+possible was} 27... e4 28. fxe4 fxe4 29. g3 e3 {and Black's corner knight
+escapes via f2.}) 28. Nh3 (28. g3 Kf7 29. Kg2 Nxg3 30. hxg3 Ke7 {followed by
+31...Kd6 and 32...Kxd5 would be just as hopeless.}) 28... Bb6 29. g4 fxg4 30.
+fxg4 e4 31. d6 (31. Kg2 e3 32. Kxh1 e2 $19) 31... e3 32. Nf4 Nf2 33. Nd5 Bd8
+34. Nxe3 Ne4 35. Nc4 Kf7 0-1

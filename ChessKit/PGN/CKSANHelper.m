@@ -173,6 +173,12 @@ static NSCharacterSet *trimCharacters;
     CCColoredPiece piece = CCColoredPieceMake(position.sideToMove, type);
 #warning Finish implementation
     CCBitboard bitboard = CCBoardGetPseudoLegalMovesToSquareForPiece(position.board, to, piece);
+    if (to == position.enPassantSquare && type == PawnPiece)
+    {
+        // Also include en passant targets
+        bitboard |= CCBoardGetAttacksToSquare(position.board, to) & CCBoardGetBitboardForPiece(position.board, piece);
+    }
+    
     // TODO: Check legality, not just pseudo-legality
     
     if ([san length] == 1)
@@ -187,12 +193,12 @@ static NSCharacterSet *trimCharacters;
         {
             mask = ranksBB(c - '1');
         }
+        
         bitboard &= mask;
     }
     
     if (CCBitboardPopulationCount(bitboard) != 1)
     {
-        //NSLog(@"Invalid disambiguation: \n%@", NSStringFromCCBitboard(bitboard));
         return InvalidSquare;
     }
     
