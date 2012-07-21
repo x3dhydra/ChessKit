@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		191D78A01567FEAF0052DCDF /* moscowWC2012.pgn in Resources */ = {isa = PBXBuildFile; fileRef = 191D789F1567FEAF0052DCDF /* moscowWC2012.pgn */; };
 		191D78A61567FF4A0052DCDF /* CKPGNDatabaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 191D78A51567FF4A0052DCDF /* CKPGNDatabaseTestCase.m */; };
+		191D78C71572D8000052DCDF /* CKGameProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 191D78C61572D8000052DCDF /* CKGameProvider.h */; };
+		191D78CA1572D81A0052DCDF /* CKGameList.h in Headers */ = {isa = PBXBuildFile; fileRef = 191D78C81572D81A0052DCDF /* CKGameList.h */; };
+		191D78CB1572D81A0052DCDF /* CKGameList.m in Sources */ = {isa = PBXBuildFile; fileRef = 191D78C91572D81A0052DCDF /* CKGameList.m */; };
+		191D78CC1572D81A0052DCDF /* CKGameList.m in Sources */ = {isa = PBXBuildFile; fileRef = 191D78C91572D81A0052DCDF /* CKGameList.m */; };
 		191FC2131494415600FB4F8E /* libCoreChess.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 191FC2121494415600FB4F8E /* libCoreChess.a */; };
 		191FC2171494417D00FB4F8E /* CKPosition.h in Headers */ = {isa = PBXBuildFile; fileRef = 191FC2151494417D00FB4F8E /* CKPosition.h */; };
 		191FC2181494417D00FB4F8E /* CKPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 191FC2161494417D00FB4F8E /* CKPosition.m */; settings = {COMPILER_FLAGS = ""; }; };
@@ -96,6 +100,9 @@
 		191D789F1567FEAF0052DCDF /* moscowWC2012.pgn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = moscowWC2012.pgn; path = Resources/moscowWC2012.pgn; sourceTree = "<group>"; };
 		191D78A41567FF4A0052DCDF /* CKPGNDatabaseTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKPGNDatabaseTestCase.h; sourceTree = "<group>"; };
 		191D78A51567FF4A0052DCDF /* CKPGNDatabaseTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKPGNDatabaseTestCase.m; sourceTree = "<group>"; };
+		191D78C61572D8000052DCDF /* CKGameProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKGameProvider.h; sourceTree = "<group>"; };
+		191D78C81572D81A0052DCDF /* CKGameList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKGameList.h; sourceTree = "<group>"; };
+		191D78C91572D81A0052DCDF /* CKGameList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKGameList.m; sourceTree = "<group>"; };
 		191FC2121494415600FB4F8E /* libCoreChess.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCoreChess.a; path = "../CoreChess/build/Release-iphoneos/libCoreChess.a"; sourceTree = "<group>"; };
 		191FC2151494417D00FB4F8E /* CKPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKPosition.h; sourceTree = "<group>"; };
 		191FC2161494417D00FB4F8E /* CKPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKPosition.m; sourceTree = "<group>"; };
@@ -279,6 +286,9 @@
 				19FF47111544820D00A7C545 /* CKGameTreeEnumerator.m */,
 				1968B1AB1552365B0027DC0E /* CKGameFormatter.h */,
 				1968B1AC1552365B0027DC0E /* CKGameFormatter.m */,
+				191D78C61572D8000052DCDF /* CKGameProvider.h */,
+				191D78C81572D81A0052DCDF /* CKGameList.h */,
+				191D78C91572D81A0052DCDF /* CKGameList.m */,
 			);
 			path = ChessKit;
 			sourceTree = "<group>";
@@ -378,6 +388,8 @@
 				195F99BC154CA0B7007C87E1 /* CKPGNGameBuilder.h in Headers */,
 				195F99C5154CAEA3007C87E1 /* CKSANHelper.h in Headers */,
 				1968B1AD1552365B0027DC0E /* CKGameFormatter.h in Headers */,
+				191D78C71572D8000052DCDF /* CKGameProvider.h in Headers */,
+				191D78CA1572D81A0052DCDF /* CKGameList.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +533,7 @@
 				195F99BD154CA0B7007C87E1 /* CKPGNGameBuilder.m in Sources */,
 				195F99C6154CAEA3007C87E1 /* CKSANHelper.m in Sources */,
 				1968B1AE1552365B0027DC0E /* CKGameFormatter.m in Sources */,
+				191D78CB1572D81A0052DCDF /* CKGameList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,6 +546,7 @@
 				199A516C154C673D008FC3E7 /* PositionTestCase.m in Sources */,
 				195F99C0154CA5B2007C87E1 /* CKPGNGameBuilderTestCase.m in Sources */,
 				191D78A61567FF4A0052DCDF /* CKPGNDatabaseTestCase.m in Sources */,
+				191D78CC1572D81A0052DCDF /* CKGameList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

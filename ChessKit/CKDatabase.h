@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CKGameProvider.h"
 
 @class CKGame;
 
-@interface CKDatabase : NSObject
+@interface CKDatabase : NSObject <CKGameProvider>
 @property (strong, nonatomic, readonly) NSURL *url;
 
 + (id)databaseWithContentsOfFile:(NSString *)file;
@@ -19,8 +20,11 @@
 - (id)initWithContentsOfFile:(NSString *)file;
 - (id)initWithContentsOfURL:(NSURL *)url;
 
+// CKGameList methods
 - (NSUInteger)count;
 - (CKGame *)gameAtIndex:(NSUInteger)index;
 - (NSDictionary *)metadataAtIndex:(NSUInteger)index;
+
+- (NSArray *)filteredGamesUsingPredicate:(NSPredicate *)predicate;
 
 @end

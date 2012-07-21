@@ -68,5 +68,18 @@
     return nil;
 }
 
+- (NSIndexSet *)filteredGamesUsingPredicate:(NSPredicate *)predicate
+{
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    
+    for (NSUInteger i = 0; i < self.count; i++)
+    {
+        NSDictionary *dictionary = [self metadataAtIndex:i];
+        if ([predicate evaluateWithObject:dictionary])
+            [array addObject:[NSNumber numberWithUnsignedInteger:i]];
+    }
+    
+    return array;
+}
 
 @end

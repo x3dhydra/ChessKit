@@ -30,7 +30,18 @@ static NSString * const CKPGNGameRangesKey = @"kPGNGameRangesKey";
     if (self)
     {
         _gameData = [NSData dataWithContentsOfMappedFile:[url path]];
-        _databaseString = [[NSString alloc] initWithBytesNoCopy:_gameData.bytes length:[_gameData length] encoding:NSUTF8StringEncoding freeWhenDone:NO];
+        _databaseString = [[NSString alloc] initWithBytesNoCopy:_gameData.bytes length:[_gameData length] encoding:NSWindowsCP1252StringEncoding freeWhenDone:NO];
+        
+        if (!_databaseString)
+        {
+            // Technically PGN is supposed to be ASCII / UTF8 string encoding
+            NSStringEncoding encoding;
+            NSError *error = nil;
+            NSString *temp = [[NSString alloc] initWithContentsOfURL:url usedEncoding:&encoding error:&error];
+            if (!error)
+                _databaseString = [[NSString alloc] initWithBytesNoCopy:_gameData.bytes length:[_gameData length] encoding:encoding freeWhenDone:NO];
+        }
+        
         _gameRanges = [[NSMutableArray alloc] init];
         _metadataCache = [[NSCache alloc] init];
         [self loadDatabase];
@@ -47,7 +58,7 @@ static NSString * const CKPGNGameRangesKey = @"kPGNGameRangesKey";
 {
     NSString *gameText = [self gameStringAtIndex:index];
     CKPGNGameBuilder *builder = [[CKPGNGameBuilder alloc] initWithString:gameText];
-    //NSLog(@"%@", gameText);
+    NSLog(@"%@", gameText);
     return builder.game;
 }
 
