@@ -46,17 +46,24 @@ static const NSInteger kCKCancelIncrement = 25;  // Check for cancellation
     NSPredicate *predicate = self.fetchRequest.predicate;
     NSUInteger count = self.database.count;
     
-    for (NSUInteger index = 0; index < count; index++)
+    @autoreleasepool 
     {
-        if (index % kCKCancelIncrement == 0 && [self isCancelled])
-            break;
-        
-        NSDictionary *metadata = [self.database metadataAtIndex:index];
-        if ([predicate evaluateWithObject:metadata])
+        for (NSUInteger index = 0; index < count; index++)
         {
-            [_matchingIndexes addObject:[NSNumber numberWithUnsignedInteger:index]];
+            @autoreleasepool 
+            {
+                if (index % kCKCancelIncrement == 0 && [self isCancelled])
+                    break;
+                
+                NSDictionary *metadata = [self.database metadataAtIndex:index];
+                if ([predicate evaluateWithObject:metadata])
+                {
+                    [_matchingIndexes addObject:[NSNumber numberWithUnsignedInteger:index]];
+                }
+            }
         }
     }
+    
 }
 
 - (NSArray *)matchingIndexes
