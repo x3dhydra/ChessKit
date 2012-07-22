@@ -11,6 +11,7 @@
 #import "CKPGNTokenizer.h"
 #import "CKFENHelper.h"
 #import "CKSANHelper.h"
+#import "CKPGNMetadataScanner.h"
 
 static inline BOOL CKTokenIsTagPair(CCTokenType token)
 {
@@ -196,7 +197,13 @@ static inline BOOL CKTokenIsTagPair(CCTokenType token)
 {
     if (!_metadata)
     {
-        [self buildGame];
+        if (self.options == CKPGNMetadataOnly)
+        {
+            CKPGNMetadataScanner *scanner = [[CKPGNMetadataScanner alloc] initWithGameText:self.gameText];
+            _metadata = [scanner metadata];
+        }
+        else
+            [self buildGame];
     }
     return _metadata;
 }

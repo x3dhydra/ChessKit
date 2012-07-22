@@ -38,6 +38,8 @@
 		194353A615BB473600C21C55 /* CKFetchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 194353A415BB473600C21C55 /* CKFetchRequest.m */; };
 		194353A915BB4C2400C21C55 /* CKFetchOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 194353A715BB4C2400C21C55 /* CKFetchOperation.h */; };
 		194353AA15BB4C2400C21C55 /* CKFetchOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 194353A815BB4C2400C21C55 /* CKFetchOperation.m */; };
+		194353B315BBC41000C21C55 /* CKPGNMetadataScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 194353B115BBC41000C21C55 /* CKPGNMetadataScanner.h */; };
+		194353B415BBC41000C21C55 /* CKPGNMetadataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 194353B215BBC41000C21C55 /* CKPGNMetadataScanner.m */; };
 		195F99B4154C9F03007C87E1 /* CKPGNTokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 195F99B1154C9F03007C87E1 /* CKPGNTokenizer.h */; };
 		195F99B5154C9F03007C87E1 /* CKPGNTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 195F99B2154C9F03007C87E1 /* CKPGNTokenizer.m */; };
 		195F99B6154C9F03007C87E1 /* Tokens.h in Headers */ = {isa = PBXBuildFile; fileRef = 195F99B3154C9F03007C87E1 /* Tokens.h */; };
@@ -135,6 +137,8 @@
 		194353A415BB473600C21C55 /* CKFetchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKFetchRequest.m; path = Search/CKFetchRequest.m; sourceTree = "<group>"; };
 		194353A715BB4C2400C21C55 /* CKFetchOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKFetchOperation.h; path = Search/CKFetchOperation.h; sourceTree = "<group>"; };
 		194353A815BB4C2400C21C55 /* CKFetchOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKFetchOperation.m; path = Search/CKFetchOperation.m; sourceTree = "<group>"; };
+		194353B115BBC41000C21C55 /* CKPGNMetadataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKPGNMetadataScanner.h; path = PGN/CKPGNMetadataScanner.h; sourceTree = "<group>"; };
+		194353B215BBC41000C21C55 /* CKPGNMetadataScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKPGNMetadataScanner.m; path = PGN/CKPGNMetadataScanner.m; sourceTree = "<group>"; };
 		195F99B1154C9F03007C87E1 /* CKPGNTokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKPGNTokenizer.h; path = PGN/CKPGNTokenizer.h; sourceTree = "<group>"; };
 		195F99B2154C9F03007C87E1 /* CKPGNTokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKPGNTokenizer.m; path = PGN/CKPGNTokenizer.m; sourceTree = "<group>"; };
 		195F99B3154C9F03007C87E1 /* Tokens.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tokens.h; path = PGN/Tokens.h; sourceTree = "<group>"; };
@@ -377,6 +381,8 @@
 				19FF471715449BB400A7C545 /* CKPGNDatabase.m */,
 				195F99BA154CA0B7007C87E1 /* CKPGNGameBuilder.h */,
 				195F99BB154CA0B7007C87E1 /* CKPGNGameBuilder.m */,
+				194353B115BBC41000C21C55 /* CKPGNMetadataScanner.h */,
+				194353B215BBC41000C21C55 /* CKPGNMetadataScanner.m */,
 			);
 			name = PGN;
 			sourceTree = "<group>";
@@ -430,6 +436,7 @@
 				19C3584C15BB23BD002A8CB8 /* NSString+FileEncoding.h in Headers */,
 				194353A515BB473600C21C55 /* CKFetchRequest.h in Headers */,
 				194353A915BB4C2400C21C55 /* CKFetchOperation.h in Headers */,
+				194353B315BBC41000C21C55 /* CKPGNMetadataScanner.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +585,7 @@
 				19C3584D15BB23BD002A8CB8 /* NSString+FileEncoding.m in Sources */,
 				194353A615BB473600C21C55 /* CKFetchRequest.m in Sources */,
 				194353AA15BB4C2400C21C55 /* CKFetchOperation.m in Sources */,
+				194353B415BBC41000C21C55 /* CKPGNMetadataScanner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

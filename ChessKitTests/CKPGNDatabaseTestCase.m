@@ -8,6 +8,7 @@
 
 #import "CKPGNDatabaseTestCase.h"
 #import "ChessKit.h"
+#import "CKPGNMetadataScanner.h"
 
 @implementation CKPGNDatabaseTestCase
 
@@ -28,6 +29,15 @@
     CKDatabase *database = [CKDatabase databaseWithContentsOfURL:url];
 
     STAssertTrue(database.count == 1908, @"Database count = %d", database.count);
+}
+
+- (void)testMetadataScanner
+{
+    NSURL *url = [[NSBundle bundleForClass:[self class]] URLForResource:@"moscowWC2012" withExtension:@"pgn"];
+    NSString *gameText = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
+    
+    CKPGNMetadataScanner *scanner = [[CKPGNMetadataScanner alloc] initWithGameText:gameText];
+    [scanner metadata];
 }
 
 @end
