@@ -173,6 +173,11 @@ static NSCharacterSet *trimCharacters;
     CCColoredPiece piece = CCColoredPieceMake(position.sideToMove, type);
 #warning Finish implementation
     CCBitboard bitboard = CCBoardGetPseudoLegalMovesToSquareForPiece(position.board, to, piece);
+    
+    // Exclude pinned pieces from those pieces that can move.
+    CCBitboard pinnedPieces = CCBitboardGetAbsolutePinsOfColor(position.board, position.sideToMove);
+    bitboard &= ~pinnedPieces;
+    
     if (to == position.enPassantSquare && type == PawnPiece)
     {
         // Also include en passant targets
