@@ -8,7 +8,24 @@
 
 #import "CKPGNTokenizer.h"
 
+static NSCharacterSet *whiteSpace;
+static NSCharacterSet *selfTerminatingCharacters;
+static NSCharacterSet *tokenEndCharacters;
+
 @implementation CKPGNTokenizer
+
++ (void)initialize
+{
+    [super initialize];
+    
+    selfTerminatingCharacters = [NSCharacterSet characterSetWithCharactersInString:@"{}()[]<>.*"];
+    
+    NSMutableCharacterSet *tmp = [[NSCharacterSet whitespaceAndNewlineCharacterSet] mutableCopy];
+    [tmp formUnionWithCharacterSet:selfTerminatingCharacters];
+    tokenEndCharacters = [tmp copy];
+    
+    whiteSpace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+}
 
 - (id)initWithString:(NSString *)gameText
 {
@@ -21,8 +38,8 @@
     if (self)
     {
         scanner = [[NSScanner alloc] initWithString:gameText];
+        string = gameText;
         [scanner setCharactersToBeSkipped:nil];
-        [self setupCharacterSets];
     }
     return self;
 }
@@ -85,36 +102,45 @@
     else
     {
         // Skip whitespace
-        [scanner scanCharactersFromSet:[NSCharacterSet whitespaceAndNewlineCharacterSet] intoString:nil];
+        [scanner scanCharactersFromSet:whiteSpace intoString:nil];
         
         // Peek at the next character to see if it's self-terminating;
         char c = [self peek];
         if ([selfTerminatingCharacters characterIsMember:c])
         {
-            token = [NSString stringWithFormat:@"%c", c];
+            //token = [[NSString alloc] initWithBytes:&c length:1 encoding:NSASCIIStringEncoding];
+            //[NSString stringWithFormat:@"%c", c];
             switch (c) {
                 case '{':
+                    token = @"{";
                     lastToken = CCTokenBeginAnnotation;
                     break;
                 case '}':
+                    token = @"}";
                     lastToken = CCTokenEndAnnotation;
                     break;
                 case '(':
+                    token = @"(";
                     lastToken = CCTokenBeginRAV;
                     break;
                 case ')':
+                    token = @")";
                     lastToken = CCTokenEndRAV;
                     break;
                 case '[':
+                    token = @"[";
                     lastToken = CCTokenBeginTag;
                     break;
                 case ']':
+                    token = @"]";
                     lastToken = CCTokenEndTag;
                     break;
                 case '.':
+                    token = @".";
                     lastToken = CCTokenPeriod;
                     break;
                 case '*':
+                    token = @"*";
                     lastToken = CCTokenGameTermination;
                     break;
                 case '\0':
@@ -160,25 +186,13 @@
 // Peeks at the next character to be scanned
 - (char)peek
 {
-    NSString *string = [scanner string];
+    //NSString *string = [scanner string];
     NSUInteger location = [scanner scanLocation];
     
     char nextChar = 0;
     if (location < [string length])
         nextChar = [string characterAtIndex:location];
     return nextChar;
-}
-
-- (void)setupCharacterSets
-{
-    selfTerminatingCharacters = [NSCharacterSet characterSetWithCharactersInString:@"{}()[]<>.*"];
-    
-    NSMutableCharacterSet *tmp = [[NSCharacterSet whitespaceAndNewlineCharacterSet] mutableCopy];
-    [tmp formUnionWithCharacterSet:selfTerminatingCharacters];
-    tokenEndCharacters = [tmp copy];
-    
-    whiteSpace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
-    
 }
 
 - (NSUInteger)scanLocation

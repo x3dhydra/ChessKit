@@ -14,9 +14,7 @@
     CCTokenType lastToken;
     
     // Character sets
-    NSCharacterSet *tokenEndCharacters;
-    NSCharacterSet *selfTerminatingCharacters;
-    NSCharacterSet *whiteSpace;
+    NSString *string;
     NSRange lastTokenRange;
 }
 
