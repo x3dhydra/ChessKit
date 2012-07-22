@@ -30,4 +30,6 @@
 - (id)executeFetchRequest:(CKFetchRequest *)fetchRequst completion:(void (^)(NSArray *matchingIndexes, CKDatabase *database))completion;
 - (void)cancelSearch:(id)context;
 
+- (NSString *)title;
+
 @end

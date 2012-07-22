@@ -64,6 +64,11 @@
     return 0;
 }
 
+- (NSString *)title
+{
+    return [[self.url lastPathComponent] stringByDeletingPathExtension];
+}
+
 - (CKGame *)gameAtIndex:(NSUInteger)index
 {
     [NSException raise:NSGenericException format:@"%@ must be implemented in a concrete subclass", NSStringFromSelector(_cmd)];
