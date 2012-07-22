@@ -485,7 +485,7 @@
 		19F2776F146DAAE700B58AB1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "Austen Green Consulting";
 			};
 			buildConfigurationList = 19F27772146DAAE700B58AB1 /* Build configuration list for PBXProject "ChessKit" */;
