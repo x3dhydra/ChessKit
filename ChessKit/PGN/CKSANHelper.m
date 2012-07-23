@@ -173,11 +173,7 @@ static NSCharacterSet *trimCharacters;
     CCColoredPiece piece = CCColoredPieceMake(position.sideToMove, type);
 #warning Finish implementation
     CCBitboard bitboard = CCBoardGetPseudoLegalMovesToSquareForPiece(position.board, to, piece);
-    
-    // Exclude pinned pieces from those pieces that can move.
-    CCBitboard pinnedPieces = CCBitboardGetAbsolutePinsOfColor(position.board, position.sideToMove);
-    bitboard &= ~pinnedPieces;
-    
+        
     if (to == position.enPassantSquare && type == PawnPiece)
     {
         // Also include en passant targets
@@ -202,8 +198,16 @@ static NSCharacterSet *trimCharacters;
         bitboard &= mask;
     }
     
-    if (CCBitboardPopulationCount(bitboard) != 1)
+    // If we have too many pieces, see if we can disambiguate by removing any absolutel pinned pieces
+    if (CCBitboardPopulationCount(bitboard) > 1)
     {
+        // Exclude pinned pieces from those pieces that can move.
+        CCBitboard pinnedPieces = CCBitboardGetAbsolutePinsOfColor(position.board, position.sideToMove);
+        bitboard &= ~pinnedPieces;
+    }
+    
+    if (CCBitboardPopulationCount(bitboard) != 1)
+    {   
         return InvalidSquare;
     }
     
