@@ -689,6 +689,7 @@
 				DSTROOT = /tmp/ChessKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChessKit/ChessKit-Prefix.pch";
+				HEADER_SEARCH_PATHS = "${SOURCE_ROOT}/**";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -701,6 +702,7 @@
 				DSTROOT = /tmp/ChessKit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChessKit/ChessKit-Prefix.pch";
+				HEADER_SEARCH_PATHS = "${SOURCE_ROOT}/**";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
