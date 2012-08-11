@@ -1,0 +1,3 @@
+[submodule "CoreChess"]
+	path = CoreChess
+	url = git://github.com/x3dhydra/CoreChess.git
