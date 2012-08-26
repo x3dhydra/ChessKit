@@ -121,8 +121,74 @@ static NSCharacterSet *trimCharacters;
 
 + (NSString *)stringFromMove:(CKMove *)move withPosition:(CKPosition *)position
 {
-    // TODO: Implement method
-    return nil;
+    return [self stringFromMove:move withPosition:position pieceList:nil];
+}
+
++ (NSString *)stringFromMove:(CKMove *)move withPosition:(CKPosition *)position pieceList:(CKPieceList *)pieceList
+{
+	if (!pieceList)
+		pieceList = [CKPieceList defaultPieceList];
+	
+	NSMutableString *string = [NSMutableString string];
+	
+	
+	if ([position isMoveCastle:move])
+	{
+		if (move.to == c1 || move.to == c8)
+			[string appendString:@"O-O-O"];
+		else if (move.to == g1 || move.to == g8)
+			[string appendString:@"O-O"];
+	}
+	else
+	{
+		CCColoredPiece coloredPiece = CCBoardGetPieceAtSquare(position.board, move.from);
+		CCPiece piece = CCColoredPieceGetPiece(coloredPiece);
+		NSString *pieceSymbol = [pieceList stringForPiece:piece];
+		if (pieceSymbol.length)
+			[string appendString:pieceSymbol];
+	
+		CCBitboard disambiguation = CCBoardGetAttacksToSquare(position.board, move.to) & CCBoardGetBitboardForColoredPiece(position.board, coloredPiece) & ~CCBitboardGetAbsolutePinsOfColor(position.board, position.sideToMove);
+		if (piece != PawnPiece && CCBitboardPopulationCount(disambiguation) > 1)
+		{
+			// TODO: disambiguate here
+			CCBitboard file = CCBitboardGetFileAttacks(EmptyBB, move.from) & disambiguation;
+			CCBitboard rank= CCBitboardGetRankAttacks(EmptyBB, move.from) & disambiguation;
+			
+			// Note that file excludes the piece on the from square, so a non-empty bitboard indicates that another piece besides the one that's moving is present along that file/rank
+			if (CCBitboardPopulationCount(file) == 0)
+			{
+				// Can disambiguate by file (preferred)
+				[string appendString:[(__bridge NSString *)CCSquareName(move.from) substringToIndex:1]];
+			}
+			else if (CCBitboardPopulationCount(rank) == 0 && CCBitboardPopulationCount(file) > 0)
+			{
+				// Can disambiguate by rank
+				[string appendFormat:@"%d", CCSquareRank(move.from) + 1];
+			}
+			else
+			{
+				// Couldn't disambiguate by rank or file - use actual square
+				[string appendString:(__bridge NSString *)CCSquareName(move.from)];
+			}
+		}
+		
+		if (CCBoardGetPieceAtSquare(position.board, move.to) != NoColoredPiece || [position isMoveEnPassantCapture:move])
+		{
+			if (piece == PawnPiece)
+			{
+				// Get the file from the square
+				[string appendString:[(__bridge NSString *)CCSquareName(move.from) substringToIndex:1]];
+			}
+			
+			[string appendString:@"x"]; // Append capture token
+		}
+		
+		NSString *squareName = (__bridge NSString *)(CCSquareName(move.to));
+		[string appendString:squareName];
+	}
+	
+	
+	return string;
 }
 
 // Preconditions: san is a valid SAN move that has been normalized via normalizeSanString

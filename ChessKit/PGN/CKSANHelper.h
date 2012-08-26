@@ -10,7 +10,7 @@
 #define CCSANKIT_H
 #import <Foundation/Foundation.h>
 
-@class CKMove, CKPosition;
+@class CKMove, CKPosition, CKPieceList;
 
 // SANKit - Standard Algebraic Notation Kit.  Using a CCPosition, the SANKit methods translate between
 // NSString objects containing SAN representation of moves and CCMove objects
@@ -22,8 +22,8 @@
 
 // Takes a CCMove and CCPosition as context and returns an NSString in standard algebraic notation.
 // Returns nil if the move is invalid in the provided position.
-
 + (NSString *)stringFromMove:(CKMove *)move withPosition:(CKPosition *)position;
++ (NSString *)stringFromMove:(CKMove *)move withPosition:(CKPosition *)position pieceList:(CKPieceList *)pieceList;  // Uses defaultPieceList if pieceList is nil
 
 @end
 

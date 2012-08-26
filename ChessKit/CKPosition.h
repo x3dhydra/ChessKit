@@ -39,6 +39,10 @@ typedef NSUInteger CKPositionCompareOptions;
 - (CKPosition *)positionByMakingMove:(CKMove *)move;
 - (CKPosition *)positionByUnmakingMove:(CKMove *)move;
 - (BOOL)isMoveLegal:(CKMove *)move;
+- (BOOL)isMoveCastle:(CKMove *)move;
+- (BOOL)isMoveDoubleJump:(CKMove *)move;
+- (BOOL)isMoveEnPassantCapture:(CKMove *)move;
+- (BOOL)isMovePromotion:(CKMove *)move;
 
 // State
 - (CCColoredPiece)coloredPieceAtSquare:(CCSquare)square;

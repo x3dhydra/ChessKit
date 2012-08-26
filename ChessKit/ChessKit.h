@@ -12,3 +12,5 @@
 #import "CKGameTree.h"
 #import "CKDatabase.h"
 #import "CKGame.h"
+#import "CKPieceList.h"
+#import "CKSANHelper.h"

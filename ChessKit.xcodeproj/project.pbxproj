@@ -79,6 +79,8 @@
 		19FF47861544AAA200A7C545 /* twic910.pgn in Resources */ = {isa = PBXBuildFile; fileRef = 19FF47851544AAA200A7C545 /* twic910.pgn */; };
 		A09FF48915E007CA007D8F4B /* pinnedDisambiguation.pgn in Resources */ = {isa = PBXBuildFile; fileRef = A09FF48815E007CA007D8F4B /* pinnedDisambiguation.pgn */; };
 		A09FF48E15E00A74007D8F4B /* libCoreChess.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B5557A15D6B46C00424562 /* libCoreChess.a */; };
+		A0A8172F15EA6EF900E08A96 /* CKPieceList.h in Headers */ = {isa = PBXBuildFile; fileRef = A0A8172D15EA6EF900E08A96 /* CKPieceList.h */; };
+		A0A8173015EA6EF900E08A96 /* CKPieceList.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A8172E15EA6EF900E08A96 /* CKPieceList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,6 +199,8 @@
 		19FF471A1544A0AD00A7C545 /* 2500.pgn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 2500.pgn; sourceTree = "<group>"; };
 		19FF47851544AAA200A7C545 /* twic910.pgn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = twic910.pgn; sourceTree = "<group>"; };
 		A09FF48815E007CA007D8F4B /* pinnedDisambiguation.pgn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = pinnedDisambiguation.pgn; path = Resources/pinnedDisambiguation.pgn; sourceTree = "<group>"; };
+		A0A8172D15EA6EF900E08A96 /* CKPieceList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKPieceList.h; path = Locale/CKPieceList.h; sourceTree = "<group>"; };
+		A0A8172E15EA6EF900E08A96 /* CKPieceList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKPieceList.m; path = Locale/CKPieceList.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +330,7 @@
 		19F2777D146DAAE700B58AB1 /* ChessKit */ = {
 			isa = PBXGroup;
 			children = (
+				A0A8172A15EA6EC300E08A96 /* Locale */,
 				1943539F15BB472100C21C55 /* Search */,
 				19C3584615BB2394002A8CB8 /* Utilities */,
 				195F99B8154C9F1E007C87E1 /* CKGameTypes.h */,
@@ -423,6 +428,15 @@
 			name = "New Group";
 			sourceTree = "<group>";
 		};
+		A0A8172A15EA6EC300E08A96 /* Locale */ = {
+			isa = PBXGroup;
+			children = (
+				A0A8172D15EA6EF900E08A96 /* CKPieceList.h */,
+				A0A8172E15EA6EF900E08A96 /* CKPieceList.m */,
+			);
+			name = Locale;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -460,6 +474,7 @@
 				194353A515BB473600C21C55 /* CKFetchRequest.h in Headers */,
 				194353A915BB4C2400C21C55 /* CKFetchOperation.h in Headers */,
 				194353B315BBC41000C21C55 /* CKPGNMetadataScanner.h in Headers */,
+				A0A8172F15EA6EF900E08A96 /* CKPieceList.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +627,7 @@
 				194353A615BB473600C21C55 /* CKFetchRequest.m in Sources */,
 				194353AA15BB4C2400C21C55 /* CKFetchOperation.m in Sources */,
 				194353B415BBC41000C21C55 /* CKPGNMetadataScanner.m in Sources */,
+				A0A8173015EA6EF900E08A96 /* CKPieceList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

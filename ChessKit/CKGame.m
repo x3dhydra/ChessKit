@@ -27,7 +27,7 @@
 
 + (id)gameWithStartingPosition:(CKPosition *)position
 {
-    return [[self alloc] initWithPosition:position];
+    return [[self alloc] initWithStartingPosition:position];
 }
 
 - (id)initWithStartingPosition:(CKPosition *)position

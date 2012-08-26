@@ -20,11 +20,6 @@
 @property (nonatomic, readwrite, assign) BOOL requiresPromotion;
 
 
-- (BOOL)isMoveCastle:(CKMove *)move;
-- (BOOL)isMoveDoubleJump:(CKMove *)move;
-- (BOOL)isMoveEnPassantCapture:(CKMove *)move;
-- (BOOL)isMovePromotion:(CKMove *)move;
-
 - (void)makeMove:(CKMove *)move withPosition:(CKPosition *)position;
 - (void)makeSaveStateForMove:(CKMove *)move;
 - (void)makeRookMove:(CKMove *)move withPosition:(CKPosition *)position;

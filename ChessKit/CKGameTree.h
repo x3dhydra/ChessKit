@@ -60,6 +60,9 @@ typedef  struct CKGameTreeEnumerationInfo CKGameTreeEnumerationInfo;
 - (void)addMove:(CKMove *)move;
 - (BOOL)addMove:(CKMove *)move withValidation:(BOOL)shouldValidate;
 
+- (void)replaceChildAtIndex:(NSUInteger)index withGameTree:(CKGameTree *)gameTree;
+- (void)deleteChildAtIndex:(NSUInteger)index;
+
 /**
  Returns the main line in the tree
  */

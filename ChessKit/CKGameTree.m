@@ -268,5 +268,16 @@
     [child enumerateLinesUsingBlock:block context:info stop:stop];
 }
 
+- (void)replaceChildAtIndex:(NSUInteger)index withGameTree:(CKGameTree *)gameTree
+{
+	[_children replaceObjectAtIndex:index withObject:gameTree];
+}
+
+- (void)deleteChildAtIndex:(NSUInteger)index
+{
+	[_children removeObjectAtIndex:index];
+}
+
+
 @end
 
