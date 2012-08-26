@@ -510,6 +510,20 @@
             (rank == 0 && CCColoredPieceEqualsColoredPiece([self coloredPieceAtSquare:move.from], BP)));
 }
 
+- (BOOL)isMoveLegal:(CKMove *)move
+{
+	CCColoredPiece piece = CCBoardGetPieceAtSquare(self.board, move.from);
+	if (CCColoredPieceGetColor(piece) != self.sideToMove)
+		return NO;
+	
+	BOOL isPsuedoLegal = [self isMovePseudoLegal:move];
+	if (!isPsuedoLegal)
+		return NO;
+	
+	CKPosition *position = [self positionByMakingMove:move];
+	return ![position inCheck:self.sideToMove];
+}
+
 #pragma mark - Pseudolegal
 
 - (CCBitboard)slidingAttacksForPiece:(CCPiece)piece atSquare:(CCSquare)square
