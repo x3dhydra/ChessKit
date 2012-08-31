@@ -235,11 +235,16 @@
         [self promotePosition:position withMove:move];
     
     // See if the side that just moved is in check.  If it is, unmake the move
-    if ([self inCheck:CCColorGetOpposite(self.sideToMove)])
+    if ([self shouldUnmakeMoveIfInCheck] && [self inCheck:CCColorGetOpposite(self.sideToMove)])
     {
         NSLog(@"In check after %@", NSStringFromSelector(_cmd));
         [self unmakeMove:move withPosition:position];
     }
+}
+
+- (BOOL)shouldUnmakeMoveIfInCheck
+{
+	return YES;
 }
 
 // Preconditions: Move has been validated and the PieceType at move.from is a rook
@@ -344,7 +349,7 @@
     // Set the requires promotion flag.  makeMove:withPosition: will attempt to promote if a promotion piece is designated
     else if ([self isMovePromotion:move])
     {
-        position.requiresPromotion = true;
+        position.requiresPromotion = YES;
     }
     
     // Reset the en passant square.  If the move was a two-square push the ep square was set
@@ -362,6 +367,7 @@
     {
         CCColoredPiece promotionPiece = CCColoredPieceMake(CCColorGetOpposite(position.sideToMove), move.promotionPiece);
         CCBoardSetSquareWithPiece(position.board, move.to, promotionPiece);
+		position.requiresPromotion = NO;
     }
 }
 

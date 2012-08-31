@@ -33,6 +33,8 @@
 
 - (BOOL)isMovePseudoLegal:(CKMove *)move;
 
+- (BOOL)shouldUnmakeMoveIfInCheck;  // Returns YES by default
+
 - (void)promotePosition:(CKPosition *)position withMove:(CKMove *)move;
 
 @end
