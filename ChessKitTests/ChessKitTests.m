@@ -60,6 +60,8 @@
 - (void)testDatabaseLength
 {
     __block NSURL *url = nil;
+	
+	// twic910 = 1908 games
     
     [[NSBundle allBundles] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         url = [obj URLForResource:@"twic910" withExtension:@"pgn"];

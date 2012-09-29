@@ -133,7 +133,8 @@ static NSString * const CKPGNGameRangesKey = @"kPGNGameRangesKey";
     
     //[self parseDatabaseC];
     //[self parseDatabase];
-    [self parseDatabaseUpdate];
+    //[self parseDatabaseUpdate];
+	[self parseDatabaseObjC];
     //NSLog(@"%@", _gameRanges);
     
     // Save the metadata so that we can use it in the future.
@@ -144,232 +145,55 @@ static NSString * const CKPGNGameRangesKey = @"kPGNGameRangesKey";
     [dictionary writeToURL:url atomically:YES];
 }
 
-// Parses the database using C functions
-- (void)parseDatabaseC
+- (void)parseDatabaseObjC
 {
-    FILE *file = fopen([self.url.path cStringUsingEncoding:NSUTF8StringEncoding], "rt");
-    
-    if (file == NULL)
-    {
-        NSLog(@"File couldn't be opened in %@", NSStringFromSelector(_cmd));
-        return;
-    }
-    
-    BOOL logNextBracket = NO;
-    BOOL countNextLinebreak = NO;
-    NSRange gameRange; gameRange.location = 0; gameRange.length = 0;
-    NSRange lineRange; lineRange.location = 0; lineRange.length = 0;
-    NSRange lastLinebreakRange; lastLinebreakRange.location = 0; lastLinebreakRange.length = 0;
-    
-    fpos_t pos = 0;
-    char buffer[256];
-    char *result = NULL;
-    char c = 0;
-    while (!feof(file)) {
-        
-        // Get the line range
-        lineRange.location = pos;
-        result = fgets(buffer, 256, file);
-        fgetpos(file, &pos);
-        lineRange.length = pos - lineRange.location;
-        
-        if (result == NULL)
-        {
-            // TODO: Handle error
-            break;
-        }
-        
-        c = buffer[0];    
-        
-        if (logNextBracket && (c == '['))
-        {
-            // The first '[' marks the start of the game
-            // Assumption: Every game starts with at least one tag pair
-            
-            logNextBracket = NO;
-            if (lastLinebreakRange.location > gameRange.location)
-            {
-                gameRange.length = lastLinebreakRange.location - gameRange.location;
-                [_gameRanges addObject:[NSValue valueWithRange:gameRange]];
-                
-                gameRange.location = lineRange.location;
-            }
-            countNextLinebreak = YES;
-        }
-        
-        // Process as a linebreak
-        else if (c == '\r' || c == '\n' || c == 0) 
-        {
-            lastLinebreakRange = lineRange;
-            if (countNextLinebreak == YES)
-            {
-                countNextLinebreak = NO;
-            }
-            else
-            {
-                logNextBracket = YES;
-            }
-        }
-        
-        // Technically the PGN standard calls for no spaces at the beginning or end of a line
-        // However, some PGN games might have a space in front of an empty line, which throws off our parsing
-        // so make sure we take care of it
-        else if (c == ' ')
-        {
-            BOOL lineIsEmpty = YES;
-            
-            for (int i = 0; i < strlen(buffer); i++)
-            {
-                if (isgraph(c))
-                {
-                    lineIsEmpty = NO;
-                    break;
-                }
-            }
-            if (lineIsEmpty)
-            {
-                lastLinebreakRange = lineRange;
-                if (countNextLinebreak == YES)
-                {
-                    countNextLinebreak = NO;
-                }
-                else
-                {
-                    logNextBracket = YES;
-                }
-            }
-        }
-        
-        // Process non-empty lines
-        else if (logNextBracket == NO && (c != '[')) {
-            //countNextLinebreak = YES;
-        }
-    }
-    
-    gameRange.length = lineRange.location + lineRange.length - gameRange.location;
-    [_gameRanges addObject:[NSValue valueWithRange:gameRange]];
-    
-    
-    fclose(file);
-}
-
-- (void)parseDatabase
-{
-    NSUInteger index = 0;
-    
-    @autoreleasepool 
-    {
-        do 
-        {
-            NSString *scanString = [_databaseString substringWithRange:NSMakeRange(index, _databaseString.length - index)];
-            
-            CKPGNTokenizer *tokenizer = [[CKPGNTokenizer alloc] initWithString:scanString];
-            CCTokenType tokenType = CCTokenUnrecognized;
-            NSString *token = nil;
-            
-            do {
-                token = [tokenizer getNextToken:&tokenType];
-            } while (tokenType != CCTokenGameTermination && token != nil);
-            
-            NSInteger length = [tokenizer scanLocation];
-            NSRange gameRange = NSMakeRange(index, length);
-            index += length;
-                        
-            if (token)
-            {
-                [_gameRanges addObject:[NSValue valueWithRange:gameRange]];
-            }
-        } while (index < _databaseString.length);
-    }
-}
-
-- (void)parseDatabaseUpdate
-{
-
-    FILE *file = fopen([self.url.path cStringUsingEncoding:NSUTF8StringEncoding], "rt");
-    
-    if (file == NULL)
-    {
-        NSLog(@"File couldn't be opened in %@", NSStringFromSelector(_cmd));
-        return;
-    }
-    
-    BOOL logNextBracket = NO;
-    BOOL countNextLinebreak = NO;
-    NSRange gameRange; gameRange.location = 0; gameRange.length = 0;
-    NSRange lineRange; lineRange.location = 0; lineRange.length = 0;
-    NSRange lastLinebreakRange; lastLinebreakRange.location = 0; lastLinebreakRange.length = 0;
-    
-    fpos_t pos = 0;
-    char buffer[256];
-    char *result = NULL;
-    char c = 0;
-    
-        // Buffer size - buffer theoretically should not exceed 80 chars
-//        int bufferSize = 121;
-//        char* buffer = new char[bufferSize];
-//        bool logNextBracket = true;
-//        long offset = 0;
-        
-    short linesSkipped = 0;
-    
-    while(!feof(file))
-    {
-        //database->getline(buffer, bufferSize);
-        
-        // Get the line range
-        lineRange.location = pos;
-        result = fgets(buffer, 256, file);
-        fgetpos(file, &pos);
-        lineRange.length = pos - lineRange.location;
-
-        
-        if (logNextBracket && (buffer[0] == '[')) {
-            logNextBracket = NO;
-            
-            if (lastLinebreakRange.location > gameRange.location)
-            {
-                gameRange.length = lastLinebreakRange.location - gameRange.location;
-                [_gameRanges addObject:[NSValue valueWithRange:gameRange]];
-                
-                gameRange.location = lineRange.location;
-            }
-
-            
-            //offset = (long)database->tellg() - (strlen(buffer) + 1);
-            //gameIndexes->push_back(offset);
-        } 
-        /* New Method: 
-         * Assumptions: 
-         * 1. '\r' is present for all new lines
-         * 2. There always exists one and only one
-         *    blank line in between the header and gametext
-         *    and the gametext and next game.
-         */
-        else if (buffer[0] == '\r' || buffer[0] == '\n') {
-            linesSkipped++;
-            lastLinebreakRange = lineRange;
-            
-            if (linesSkipped % 2 == 0) {
-                linesSkipped = 0;
-                logNextBracket = YES;
-            }
-        }
-        
-        /* Old Method: failed if a '[' appeared as the first character
-         * of a non-header line.
-         
-         else if (logNextBracket == false && (buffer[0] != '[')) {
-         logNextBracket = true;
-         }
-         */
-    }
-    
-    gameRange.length = lineRange.location + lineRange.length - gameRange.location;
-    [_gameRanges addObject:[NSValue valueWithRange:gameRange]];
-
-    
-    fclose(file);
+	__block NSRange gameRange = NSMakeRange(0, 0);
+	
+	__block NSUInteger lineGroupsSkippedCount = 0;
+	__block BOOL nextBracketIndicatesNewGame = YES;
+	__block BOOL isInLinebreakGroup = NO;
+	
+	[_databaseString enumerateSubstringsInRange:NSMakeRange(0, _databaseString.length) options:NSStringEnumerationByLines usingBlock:^(NSString *substring, NSRange lineRange, NSRange enclosingRange, BOOL *stop) {
+		
+		// Keep track of linebreak groups in case there are multiple newlines in between the metadata and movetext sections
+		
+		if (isInLinebreakGroup && lineRange.length)
+		{
+			// We were in a linebreak group and now we have non-linebreak text
+			isInLinebreakGroup = NO;
+			lineGroupsSkippedCount++;
+			
+			if (lineGroupsSkippedCount % 2 == 0)
+			{
+				lineGroupsSkippedCount = 0;
+				nextBracketIndicatesNewGame = YES;
+			}
+		}
+		
+		if (lineRange.length && nextBracketIndicatesNewGame && [substring characterAtIndex:0] == '[')
+		{
+			nextBracketIndicatesNewGame = NO;
+			
+			// This way we don't include the first game range
+			if (gameRange.length > 0)
+			{
+				[_gameRanges addObject:[NSValue valueWithRange:gameRange]];
+				gameRange = NSMakeRange(lineRange.location, 0);
+			}
+		}
+		else if (!lineRange.length && !isInLinebreakGroup)
+		{
+			isInLinebreakGroup = YES;
+		}
+		
+		gameRange = NSUnionRange(gameRange, lineRange);
+	}];
+	
+	// Make sure we include the last game
+	if (gameRange.length)
+	{
+		[_gameRanges addObject:[NSValue valueWithRange:gameRange]];
+	}
 }
 
 @end

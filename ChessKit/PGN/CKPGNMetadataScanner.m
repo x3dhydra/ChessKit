@@ -37,6 +37,7 @@
     return _metadata;
 }
 
+/*
 - (void)scanMetadata
 {
     CFStringRef gameText = (__bridge CFStringRef)_gameText;
@@ -109,6 +110,35 @@
         location += length;
         
     } while (location < stringLength);
+}
+ */
+
+- (void)scanMetadata
+{
+	NSScanner *scanner = [[NSScanner alloc] initWithString:_gameText];
+	[scanner setCharactersToBeSkipped:[NSCharacterSet newlineCharacterSet]];
+	
+	NSUInteger scanLocation = scanner.scanLocation;
+	NSUInteger length = _gameText.length;
+	
+	while (scanLocation < length && [_gameText characterAtIndex:scanLocation] == '[')
+	{
+		[scanner scanUpToCharactersFromSet:[NSCharacterSet alphanumericCharacterSet] intoString:nil];
+
+		NSString *key = nil;
+		[scanner scanCharactersFromSet:[NSCharacterSet alphanumericCharacterSet] intoString:&key];
+		
+		[scanner scanUpToString:@"\"" intoString:nil];
+		[scanner setScanLocation:scanner.scanLocation + 1];
+		NSString *value = nil;
+		[scanner scanUpToString:@"\"" intoString:&value];
+		
+		if (value && key)
+			[_metadata setObject:value forKey:key];
+		
+		[scanner scanUpToString:@"[" intoString:nil];
+		scanLocation = scanner.scanLocation;
+	}
 }
 
 @end
