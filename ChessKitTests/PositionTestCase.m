@@ -23,6 +23,26 @@
 - (void)testBlackEnPassant
 {
     NSURL *url = [[NSBundle bundleForClass:[self class]] URLForResource:@"TestBlackEnPassant" withExtension:@"pgn"];
+	CKDatabase *database = [CKDatabase databaseWithContentsOfURL:url];
+	CKGame *game = [database gameAtIndex:1];
+}
+
+- (void)testSANHelperEnPassant
+{
+	// En passant was failing at one point if there was also an opposing pawn defending the en-passant square from the same file
+	// because the disambiguation candidates were being set to all pawns instead of just the side-to-move's pawns.
+	CKMutablePosition *position = [[CKMutablePosition alloc] init];
+	CCMutableBoardRef board = [position board];
+	CCBoardSetSquareWithPiece(board, a1, WK);
+	CCBoardSetSquareWithPiece(board, a8, BK);
+	CCBoardSetSquareWithPiece(board, h7, BP);
+	CCBoardSetSquareWithPiece(board, g5, BP);
+	CCBoardSetSquareWithPiece(board, h5, WP);
+	position.enPassantSquare = g6;
+	position.sideToMove = CCWhite;
+	
+	CKMove *move = [CKSANHelper moveFromString:@"hxg6" withPosition:position];
+	STAssertTrue(move.from != InvalidSquare, @"Could not generate hxg6 with position: %@", position);
 }
 
 - (void)testPinnedDisambiguation

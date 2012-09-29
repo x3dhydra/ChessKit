@@ -243,7 +243,7 @@ static NSCharacterSet *trimCharacters;
     if (to == position.enPassantSquare && type == PawnPiece)
     {
         // Also include en passant targets
-        bitboard |= CCBoardGetAttacksToSquare(position.board, to) & CCBoardGetBitboardForPiece(position.board, piece);
+        bitboard |= (CCBoardGetAttacksToSquare(position.board, to) & CCBoardGetBitboardForColoredPiece(position.board, piece));
     }
     
     // TODO: Check legality, not just pseudo-legality
