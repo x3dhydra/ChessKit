@@ -52,6 +52,7 @@
     if (self)
     {
         _board = CCBoardCreateMutable();
+		_epSquare = InvalidSquare;
     }
     return self;
 }

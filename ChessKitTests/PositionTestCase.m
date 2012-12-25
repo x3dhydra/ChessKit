@@ -54,4 +54,10 @@
 	CKGame *game = [gameBuilder game];
 }
 
+- (void)testInitEnPassantSquare
+{
+	CKPosition *position = [[CKPosition alloc] init];
+	STAssertTrue(position.enPassantSquare == InvalidSquare, @"Position should have invalid en passant square. Actual value is %@", CCSquareName(position.enPassantSquare));
+}
+
 @end
